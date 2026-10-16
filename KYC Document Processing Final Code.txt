@@ -1,0 +1,3310 @@
+
+# ====================================== IMPORTING ALL REQUIRED LIBRARIES =========================================
+
+# ====================================== IMPORTING ALL REQUIRED LIBRARIES =========================================
+import warnings
+warnings.filterwarnings('ignore')
+import os
+import io
+import sys
+from contextlib import redirect_stdout
+import pandas
+from dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI
+from langchain_community.document_loaders import TextLoader #### to read text files
+from langchain.text_splitter import CharacterTextSplitter #### to perform chunking
+#from langchain_openai import OpenAIEmbeddings ### to create embeddings
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnableLambda # Importing RunnableLambda
+from dotenv import load_dotenv
+import os
+from typing import Literal
+from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel
+from langchain.chat_models import ChatOpenAI # Import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import BaseMessage, HumanMessage,SystemMessage
+from langchain_community.document_loaders import TextLoader #### to read text files
+from langchain.text_splitter import RecursiveCharacterTextSplitter #### to perform chunking
+from langchain.indexes.vectorstore import VectorStoreIndexWrapper
+from langgraph.graph import END, StateGraph, START
+from langgraph.graph import Graph
+from io import StringIO
+from typing import List
+from typing_extensions import TypedDict
+from langchain.output_parsers import PydanticOutputParser
+from pydantic import BaseModel,Field
+from langchain.prompts import PromptTemplate
+from typing import List, Literal
+from langchain_community.tools.gmail.utils import build_resource_service, get_gmail_credentials
+from langchain_community.agent_toolkits import GmailToolkit
+from langchain import hub
+from langchain.agents import AgentExecutor, create_tool_calling_agent, Tool, create_react_agent
+import asyncio
+from dotenv import load_dotenv
+import os
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chat_models import ChatOpenAI # Import ChatOpenAI
+#import cassio
+import os
+import pandas as pd
+import numpy as np
+from langchain_community.utilities import SerpAPIWrapper
+from langchain.schema.runnable import RunnableParallel
+from langchain.schema.runnable import RunnableBranch,RunnableLambda
+from langchain_core.prompts import ChatPromptTemplate
+from typing import TypedDict, Annotated
+from langgraph.graph import StateGraph, START, END
+from IPython.display import Image, display
+import numpy as np
+import pymongo
+from pymongo import MongoClient
+import os
+from bson.binary import Binary
+import pymongo
+from pymongo import MongoClient
+from bson import Binary
+import time
+
+#from langchain.agents import tools
+
+import os
+from pymongo import MongoClient
+from langchain.tools import Tool
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.agents import AgentExecutor, create_react_agent # Still used to create the *nested* agents
+from langchain_core.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
+#from langchain_core.pydantic_v1 import BaseModel, Field
+from typing import List, Dict, Any, Optional, TypedDict # Use TypedDict for graph state
+import pandas as pd
+import re
+from pydantic import BaseModel
+
+# Langgraph Imports
+from langgraph.graph import StateGraph, END
+from langgraph.graph import END
+from langgraph.types import Command
+#from langchain.llms import OpenAI
+
+
+try:
+    import pandas as pd
+except ImportError:
+    raise ImportError(
+        "`pandas` is not installed. Please install it with `pip install pandas`."
+    )
+import pandas as pd
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+
+from llama_index.core import SimpleDirectoryReader
+
+from llama_index.core.node_parser import SentenceSplitter ## a class that chunks documents into smaller nodes.
+
+from llama_index.core import Settings
+# from llama_index.llms.openai import OpenAI
+# from llama_index.embeddings.openai import OpenAIEmbedding
+
+from llama_index.core import SummaryIndex,VectorStoreIndex # Fixed the typo: VectorStoreIndex to VectorStoreIndex
+
+from llama_index.core.tools import QueryEngineTool
+from langchain.agents.format_scratchpad import format_log_to_str
+from llama_index.core.query_engine.router_query_engine import RouterQueryEngine
+from llama_index.core.selectors import LLMSingleSelector ##LLMSingleSelector to let the LLM choose between the summary_tool or vector_tool.
+    
+
+
+
+#!pip install langchain_google_genai
+#!pip install langchain_openai
+#!pip install dotenv
+#!pip install langchain_community
+import pandas as pd
+import numpy as np
+from dotenv import load_dotenv
+import os
+import re
+import uuid
+from langchain.agents import load_tools
+from langchain.agents import initialize_agent, Tool, AgentType
+from langchain.llms import OpenAI
+from langgraph.prebuilt import create_react_agent
+#from langgraph_supervisor import create_supervisor
+
+from dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI # Import ChatOpenAI
+#from dotenv import load_dotenv
+import os
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.schema.runnable import RunnableBranch,RunnableLambda
+from langchain.agents import tool # Import the 'tool' decorator
+from typing import Annotated #Import Annotated for type hinting
+from typing import TypedDict, Literal # Import TypedDict and Literal from typing module
+
+from langgraph.graph import MessagesState,END, StateGraph, START
+from langgraph.types import Command
+from langchain_core.messages import HumanMessage
+from typing import List, Union, Any, Dict
+from langchain.agents import Tool, initialize_agent, AgentType
+
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+import pandas as pd
+import numpy as np
+import re
+#!pip install langchain openai
+import os
+from dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI
+from langchain_community.document_loaders import TextLoader #### to read text files
+from langchain.text_splitter import CharacterTextSplitter #### to perform chunking
+from dotenv import load_dotenv
+import os
+from typing import Literal
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.pydantic_v1 import BaseModel, Field
+from langchain.chat_models import ChatOpenAI # Import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import BaseMessage, HumanMessage,SystemMessage
+from langchain_community.document_loaders import TextLoader #### to read text files
+#from langchain.text_splitter import CharacterTextSplitter #### to perform chunking
+from langchain.text_splitter import RecursiveCharacterTextSplitter #### to perform chunking
+from langchain.indexes.vectorstore import VectorStoreIndexWrapper
+from langgraph.graph import END, StateGraph, START
+
+import pdfplumber
+from langchain.vectorstores.cassandra import Cassandra
+import uuid
+#from langchain_openai import OpenAIEmbeddings ### to create embeddings
+
+#!pip install langchain
+#!pip install langchain_google_genai
+#!pip install langchain_community
+#!pip install langgraph
+from langchain.tools import tool
+import pandas as pd
+from typing import Annotated # import Annotated for type hinting
+from IPython import get_ipython
+from IPython.display import display
+# %%
+#!pip install langchain
+#!pip install langchain_google_genai
+from langchain.tools import tool
+import pandas as pd
+import os
+from langgraph.graph import MessagesState,END, StateGraph, START
+from langchain.schema import SystemMessage, HumanMessage, AIMessage
+import pandas as pd
+# %%
+from langchain_core.pydantic_v1 import BaseModel, Field
+from typing import Literal
+from langgraph.types import Command
+from langgraph.graph import MessagesState,END, StateGraph, START
+from langchain.agents import create_react_agent # Import create_react_agent
+from typing import List, Annotated
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chat_models import ChatOpenAI
+from langchain.agents import create_react_agent, AgentExecutor
+from langchain.tools import tool
+from langchain.prompts import ChatPromptTemplate
+import pandas as pd
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain import hub
+from PIL import Image
+import pytesseract
+import re
+import pandas as pd
+import pdf2image
+from io import StringIO
+import json
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+import streamlit as st
+from streamlit_pdf_viewer import pdf_viewer
+import base64
+import io
+
+
+# --- Langgraph State Definition ---
+class GraphState(TypedDict):
+    """
+    Represents the state of our graph.
+
+    Attributes:
+        query: user's original query string
+        messages: Conversation history
+        customer_name: extracted customer name string
+        mongodb_agent_output: string output from the MongoDB Agent
+        completeness_agent_summary: string output from the Completeness Agent
+        final_response: the final answer string for the user
+        error: any error message encountered, or None
+        next: The next node to visit (used by supervisor)
+    """
+    query: str
+    query_accuracy:str
+    messages: Annotated[list[BaseMessage], lambda x, y: x + y]
+    customer_name: Optional[str] = None
+    mongodb_agent_output: Optional[str] = None
+    completeness_agent_summary: Optional[str] = None
+    mongo_db_accuracy_output: Optional[str] = None
+    final_response: Optional[str] = None
+    docs_filepath: Optional[str] = None
+    sim_score: Optional[str] = None
+    llm_sim_score: Optional[str] = None
+    available_docs: Optional[str] = None  
+    final_result: Optional[str] = None    
+    ssn_ocr_output: Optional[str] = None
+    passport_ocr_output: Optional[str] = None
+    bill_ocr_output: Optional[str] = None
+    final_df_output: Optional[str] = None
+    rag_output: Optional[str]= None
+    comparison_result: Optional[str]=None
+    id_comparison_flag: Optional[str]= None
+    error: Optional[str] = None
+    next: str
+
+
+# --- Helper Functions for Document Completeness Check (from your code) ---
+# (These are used within the Completeness Agent's tool function)
+def identity_complete_status(row):
+    if row.get('passport_col') is not None or row.get('ssn_col') is not None:
+        return "Complete"
+    else:
+        return "Incomplete"
+
+def address_complete_status(row):
+    if row.get('utility_bill_col') is not None:
+        return "Complete"
+    else:
+        return "Incomplete"
+
+def overall_complete_status(row):
+    if row.get('Address_complete_status') == "Complete" and row.get('Identity_complete_status') == "Complete":
+        return "Complete"
+    else:
+        return "Incomplete"
+
+
+##################### Independent function process chat used by gmail agent
+# Ensure this function is defined and available
+def process_chat(agent_executor, user_input):
+    #print(f"User Input: {user_input}")
+    try:
+        captured_output = io.StringIO()
+        with redirect_stdout(captured_output):
+            try:
+                response = agent_executor.invoke({"input": user_input})
+            except Exception as e:
+                print(f"An error occurred during agent execution: {e}")
+
+            # Get the captured string value
+        agent_trace = captured_output.getvalue()
+        cleaned_agent_trace = remove_ansi_codes(agent_trace)
+        formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+            
+        st.warning("Thought process of agent")
+        st.success(formatted_agent_trace,icon=":material/lightbulb:")
+
+        output = response.get("output", "")
+        intermediate_steps = response.get("intermediate_steps", [])
+        # print("Gmail Output")
+        # print(output)
+        if output and output.strip():
+            return output
+        #return "Email sent created successfully", intermediate_steps
+
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        error_message = f"An error occurred: {str(e)}"
+        return error_message, []
+
+
+# --- Define Input Schemas for the Tools ---
+
+class MongoDBConnectToolInput(BaseModel):
+    """Input schema for the mongodb_connect_tool."""
+    customer_name: str = Field(description="The name of the customer whose documents need to be listed.")
+
+class DocumentCompletenessToolInput(BaseModel):
+    """Input schema for the check_docs_completeness_tool."""
+    mongodb_output_string: str = Field(description="The string output received from the mongodb_connect_tool, containing the customer name and the list of document filenames.")
+
+# The SendEmailToolInput was likely for a tool within the Gmail agent,
+# not directly for a tool called by the supervisor in this design.
+# class SendEmailToolInput(BaseModel):
+#     """Input schema for the send_email_tool."""
+#     doc_complete_output_string: str = Field(description="The string output received from the check_docs_completeness_tool, containing the customer name and the status of Identity, Adrdress and Overall completeness.")
+
+
+# --- Define the Core Tool Functions ---
+# These are the same functions as before, they will be tools for the *nested* agents
+
+def mongodb_connect(customer_name: str) -> str:
+    """
+    Connects to MongoDB, retrieves document filenames for a specific customer.
+    Expects customer_name as input. Returns a string summary with a parsable format.
+    """
+    mongodb_client_url = "mongodb://localhost:27017/"
+    mongodb_database_name = "KYC_Customer_Docs"
+    collection_name = customer_name
+
+    try:
+        client = MongoClient(mongodb_client_url)
+        client.admin.command('ismaster')
+        db = client[mongodb_database_name]
+
+        if collection_name not in db.list_collection_names():
+             client.close()
+             return f"STATUS: ERROR, CUSTOMER: {customer_name}, MESSAGE: Could not find the collection '{collection_name}' for database '{mongodb_database_name}'. Please check the customer name."
+
+        collection = db[collection_name]
+        filenames = collection.distinct("filename")
+        client.close()
+
+        if filenames:
+             return f"STATUS: SUCCESS, CUSTOMER: {customer_name}, FILENAMES: {', '.join(filenames)}"
+        else:
+             return f"STATUS: SUCCESS, CUSTOMER: {customer_name}, FILENAMES: "
+
+    except Exception as e:
+        return f"STATUS: ERROR, CUSTOMER: {customer_name}, MESSAGE: An error occurred: {e}"
+
+
+# --- Tool Function 2: Check Document Completeness (Modified Output) ---
+def check_docs_completeness(mongodb_output_string: str) -> str:
+    """
+    Processes the output string from the mongodb_connect_tool to check document completeness.
+    Expects a string like 'STATUS: SUCCESS, CUSTOMER: ..., FILENAMES: ...'
+    Returns a string indicating the completeness status including Address and Identity details.
+    """
+    #print("\\\\--------------------Calling Document Completeness Check Tool--------------------\\\\")
+
+    status_match = re.search(r"STATUS: (SUCCESS|ERROR)", mongodb_output_string)
+    customer_match = re.search(r"CUSTOMER: (.*?)(?:,|$)", mongodb_output_string)
+    filenames_match = re.search(r"FILENAMES: (.*)", mongodb_output_string)
+    message_match = re.search(r"MESSAGE: (.*)", mongodb_output_string)
+
+    status = status_match.group(1) if status_match else None
+    customer_name = customer_match.group(1).strip() if customer_match else "Unknown Customer"
+    filenames_str = filenames_match.group(1).strip() if filenames_match else ""
+    error_message = message_match.group(1).strip() if message_match else None
+
+    if status == "ERROR":
+        #print(f"Received error status from previous tool: {error_message}")
+        return f"Previous step failed: {error_message}. Cannot check document completeness."
+
+    if status != "SUCCESS":
+         #print(f"Received unexpected status from previous tool: {mongodb_output_string}")
+         return f"Could not parse expected status from previous tool output. Cannot check completeness."
+
+    filenames = [name.strip() for name in filenames_str.split(',') if name.strip()]
+
+    # print(f"Checking completeness for customer: {customer_name}")
+    # print(f"Documents found: {filenames if filenames else 'None'}")
+
+    utility_bill_exists = any("bill" in doc.lower() for doc in filenames)
+    passport_exists = any("passport" in doc.lower() for doc in filenames)
+    ssn_exists = any("ssn" in doc.lower() for doc in filenames)
+    # kyc_form_exists = any("kyc application form" in doc.lower() for doc in filenames) # Not used in logic below
+
+    doc_status = {
+        'utility_bill_col': "Found" if utility_bill_exists else None,
+        'passport_col': "Found" if passport_exists else None,
+        'ssn_col': "Found" if ssn_exists else None,
+    }
+
+    identity_status = identity_complete_status(doc_status)
+    address_status = address_complete_status(doc_status)
+    overall_status = "Complete" if identity_status == "Complete" and address_status == "Complete" else "Incomplete"
+
+    # print(f"Address Status: {address_status}, Identity Status: {identity_status}, Overall Status: {overall_status}")
+    # print(f"------------------Document Completeness check completed --------------------\n\n\n")
+
+    # --- Return a string indicating status and details ---
+    # MODIFIED: Include Address and Identity statuses in the return string
+    summary = f"Completeness Status for '{customer_name}': Overall: {overall_status}, Address: {address_status}, Identity: {identity_status}. "
+
+    if overall_status == "Incomplete":
+        missing_docs_list = []
+        if address_status == "Incomplete":
+            missing_docs_list.append("Address Proof (Utility Bill)")
+        if identity_status == "Incomplete":
+             if not passport_exists and not ssn_exists:
+                missing_docs_list.append("Identity Proof (Passport or SSN)")
+             elif not passport_exists:
+                 missing_docs_list.append("Identity Proof (Passport is missing)")
+             elif not ssn_exists:
+                 missing_docs_list.append("Identity Proof (SSN is missing)")
+
+        summary += "Missing documents: " + ", ".join(missing_docs_list) if missing_docs_list else "Details unavailable (check statuses)."
+
+    return summary
+
+
+# --- Define Tools for Each Nested Agent ---
+
+# Tool for the MongoDB Agent
+mongodb_tool = Tool(
+    name="mongdb_connect_tool",
+    func=mongodb_connect,
+    description="Useful when you need to list documents for a specific customer in the MongoDB database 'KYC_Customer_Docs' and get their filenames. This tool requires the customer's full name as input. Returns a string like 'STATUS: SUCCESS, CUSTOMER: ..., FILENAMES: ...' or 'STATUS: ERROR, ...'.",
+    args_schema=MongoDBConnectToolInput,
+)
+mongodb_agent_tools = [mongodb_tool]
+
+# Tool for the Completeness Agent
+completeness_tool = Tool(
+    name="check_docs_completeness_tool",
+    func=check_docs_completeness,
+    description="Useful when you have received the output string from the 'mongdb_connect_tool' and need to check if the required documents (like utility bill, passport, SSN) are present for KYC completeness. Input must be the exact string output received from the 'mongdb_connect_tool'.",
+    args_schema=DocumentCompletenessToolInput,
+)
+completeness_agent_tools = [completeness_tool]
+
+
+# --- Set up the LLM ---
+# NOTE: Loading API Key from environment variable is strongly recommended!
+# Replace "YOUR_GOOGLE_API_KEY" or use os.environ.get("GOOGLE_API_KEY")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",
+                             temperature=0.3, # Lower temp for reliable tool use
+                             timeout=None,
+                             max_retries=5,
+                             google_api_key="AIzaSyBCL6hZtqlYYu7FWGIVKzPxLYSpYiC205g"
+                            ) # <-- **Replace with your key or use env var**
+
+
+# --- Create Prompt Templates for Each Nested Agent ---
+
+mongodb_agent_prompt = PromptTemplate.from_template("""
+You are an agent that interacts with a MongoDB database to get a list of document filenames for a customer.
+Your only task is to use the 'mongdb_connect_tool' when given a customer name.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the customer name)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the customer name
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'mongdb_connect_tool'
+
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+
+completeness_agent_prompt = PromptTemplate.from_template("""
+You are an agent that checks the completeness of customer documents based on a list of filenames provided.
+Your only task is to use the 'check_docs_completeness_tool' when given the output string from the MongoDB tool.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the MongoDB tool's output string)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the MongoDB output string
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'check_docs_completeness_tool'
+
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+# --- Create the Nested Agent Executors (Initialize outside the nodes) ---
+
+mongodb_agent_executor = AgentExecutor(
+    agent=create_react_agent(llm, mongodb_agent_tools, mongodb_agent_prompt),
+    tools=mongodb_agent_tools,
+    verbose=True, # Set True to see nested agent's trace
+    intermediate_steps=True,
+    handle_parsing_errors=True
+)
+
+completeness_agent_executor = AgentExecutor(
+    agent=create_react_agent(llm, completeness_agent_tools, completeness_agent_prompt),
+    tools=completeness_agent_tools,
+    verbose=True, # Set True to see nested agent's trace
+    handle_parsing_errors=True
+)
+
+def remove_ansi_codes(text):
+    """
+    Removes ANSI escape codes from a string.
+    """
+    # This is a common regex pattern to match ANSI escape codes
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-9;]*[0-9A-Za-z])')
+    return ansi_escape.sub('', text)
+
+
+import re
+
+def format_agent_trace(text):
+    """
+    Formats the cleaned agent trace by ensuring key markers are on new lines.
+    Assumes the input text has already had ANSI codes removed.
+    """
+    # Add a newline before specific markers, but only if not already preceded by a newline or start of string
+    # Using lookbehind (?<!...) to avoid adding multiple newlines if one exists
+    # Added check for start of string using |^
+    text = re.sub(r'(?<![\n>])Action:', r'\nAction:', text)
+    text = re.sub(r'(?<!\n)Action Input:', r'\nAction Input:', text)
+    text = re.sub(r'(?<!\n)Final Answer:', r'\nFinal Answer:', text)
+
+    # Ensure chain start/end markers are on their own lines for clarity
+    text = text.replace("> Entering new AgentExecutor chain...", "> Entering new AgentExecutor chain...\n")
+    text = text.replace("> Finished chain.", "\n> Finished chain.")
+
+    # Optional: Clean up potential multiple consecutive newlines that might result
+    text = re.sub(r'\n{2,}', r'\n', text)
+
+    # Trim leading/trailing whitespace that might result from added newlines
+    text = text.strip()
+
+    return text
+
+# Node 1: Invoke MongoDB Agent
+def call_mongodb_agent_node(state: GraphState) -> GraphState:
+    """
+    Invokes the MongoDB Agent Executor.
+    Expects 'query' in state, extracts customer name, and passes to the agent.
+    Updates state with the MongoDB agent's final output.
+    """
+    print("\n--- Executing call_mongodb_agent_node ---")
+    query = state['query']
+
+    try:
+        # Extract customer name from the original query
+        # Using a simple LLM call as before for robustness
+        name_extraction_prompt = f"""Extract the full customer name from the following query: "{query}". If no name is clearly mentioned, respond with "None".
+        Example: "Get documents for John Doe" -> "John Doe"
+        Example: "Check completeness for Alice Smith" -> "Alice Smith"
+        Example: "Process my documents" -> "None"
+        Extracted Name:"""
+        customer_name_response = llm.invoke(name_extraction_prompt).content.strip()
+
+        if customer_name_response.lower() == 'none' or not customer_name_response:
+             raise ValueError("Customer name could not be extracted from the query.")
+
+        customer_name = customer_name_response
+
+        if customer_name== "Maria Howard":
+            st.subheader("MongoDB Overview")
+            st.image("Maria Howard_mdb.png")
+
+        elif customer_name== "Karen Young":
+            st.subheader("MongoDB Overview")
+            st.image("Karen Young_mdb.png")
+
+        elif customer_name== "Heather":
+            st.subheader("MongoDB Overview")
+            st.image("Heather_mdb.png")
+
+        elif customer_name== "Johnson White":
+            st.subheader("MongoDB Overview")
+            st.image("Johnson White_mdb.png")
+
+        
+        captured_output = io.StringIO()
+        with st.spinner("Processing the documents for "+customer_name+" ..." ):
+            print(f"Extracted customer name: {customer_name}")
+
+            # Invoke the MongoDB Agent Executor with the extracted name
+            print("Invoking MongoDB Agent...")
+            st.subheader("Invoking DocuSeek Agent...")
+
+            with redirect_stdout(captured_output):
+                try:
+                    # Invoke your agent executor within this context
+                    # Replace 'your_input_to_agent' with the actual input dictionary you pass to your agent
+                    #your_input_to_agent = {"input": "Process the output string: STATUS: SUCCESS, CUSTOMER: Heather, FILENAMES: Heather_KYC_Form.pdf, Heather_Passport.pdf, Heather_SSN.pdf"}
+                    #agent_result = your_agent_executor.invoke(your_input_to_agent)
+                    mongodb_result = mongodb_agent_executor.invoke({"input": customer_name})
+
+                except Exception as e:
+                    print(f"An error occurred during agent execution: {e}")
+                    # Optionally, re-raise the exception if you want the program to stop
+                    # raise
+
+            # Get the captured string value
+            agent_trace = captured_output.getvalue()
+            cleaned_agent_trace = remove_ansi_codes(agent_trace)
+            formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+            st.warning("Thought process of agent")
+            st.success(formatted_agent_trace,icon=":material/lightbulb:")
+            print("MongoDB Agent Finished.")
+    
+            # The final output of the MongoDB agent is the result string from the tool
+            mongodb_output = mongodb_result.get('output', f"Error: No output from MongoDB agent for {customer_name}")
+            print(f"MongoDB Agent Output: {mongodb_output}")
+
+
+            status_match = re.search(r"STATUS: (SUCCESS|ERROR)", mongodb_output)
+            customer_match = re.search(r"CUSTOMER: (.*?)(?:,|$)", mongodb_output)
+            filenames_match = re.search(r"FILENAMES: (.*)", mongodb_output)
+        
+            status = status_match.group(1) if status_match else None
+            customer_name = customer_match.group(1).strip() if customer_match else "Unknown Customer"
+            filenames_str = filenames_match.group(1).strip() if filenames_match else ""
+            st.subheader("Data Extraction")
+            #st.success("Connection with database has been setup!")
+            st.badge("Connection with database has been setup!", icon=":material/check:", color="green")
+
+            st.subheader("Documents available for "+ customer_name)
+            st.text(filenames_str)
+    
+            #filenames_list= pd.DataFrame(filenames_str.split(","),columns=["Available Documents"])
+            
+            #st.dataframe(filenames_list)
+    
+            # Update the state with the customer name and the agent's output
+            updated_state = {**state,
+                    'customer_name': customer_name,
+                    'mongodb_agent_output': mongodb_output,
+                    'error': None} # Clear previous errors if successful
+
+            # LangGraph nodes typically return the updated state.
+            # The supervisor decides the next step based on the state.
+            return updated_state
+
+    except ValueError as ve:
+        print(f"Error in call_mongodb_agent_node: {ve}")
+        st.text(ve)
+        return {**state,
+                 'error': str(ve),
+                 'final_response': str(ve) + " Please provide a clear customer name."}
+    except Exception as e:
+        st.text(e)
+        print(f"An unexpected error occurred in call_mongodb_agent_node: {e}")
+        return {**state,
+                'error': f"An unexpected error occurred in MongoDB step: {e}",
+                'final_response': f"An unexpected error occurred during the document retrieval step: {e}"}
+
+
+
+def call_check_docs_completeness_node(state: GraphState) -> GraphState:
+    """
+    Invokes the Document Completeness Agent Executor.
+    Expects 'mongodb_agent_output' in state.
+    Updates state with the completeness agent's summary.
+    """
+    print("\n--- Executing call_check_docs_completeness_node ---")
+    mongodb_output= state.get("mongodb_agent_output")
+    customer_name= state.get("customer_name") # Get customer name from state
+
+    if mongodb_output is None:
+        print("mongodb_agent_output is missing in state. Cannot check completeness.")
+        return {**state,
+                'error': "Missing MongoDB output for completeness check.",
+                'final_response': "Could not perform completeness check due to missing data from previous step."}
+
+
+    try:
+        print("Invoking Document Completeness Agent...")
+        st.subheader("Invoking DocuHunt Agent...")
+        
+        with st.spinner("Checking the document completeness for "+customer_name+" ..." ):
+
+            captured_output = io.StringIO()
+            with redirect_stdout(captured_output):
+                try:
+                    # Invoke your agent executor within this context
+                    # Replace 'your_input_to_agent' with the actual input dictionary you pass to your agent
+                    #your_input_to_agent = {"input": "Process the output string: STATUS: SUCCESS, CUSTOMER: Heather, FILENAMES: Heather_KYC_Form.pdf, Heather_Passport.pdf, Heather_SSN.pdf"}
+                    #agent_result = your_agent_executor.invoke(your_input_to_agent)
+                    summary_result = completeness_agent_executor.invoke({"input": mongodb_output})
+
+                except Exception as e:
+                    print(f"An error occurred during agent execution: {e}")
+                    # Optionally, re-raise the exception if you want the program to stop
+                    # raise
+
+            # Get the captured string value
+            agent_trace = captured_output.getvalue()
+            cleaned_agent_trace = remove_ansi_codes(agent_trace)
+            formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+
+            st.warning("Thought process of agent")
+            st.success(formatted_agent_trace,icon=":material/lightbulb:")
+            print("Document Completeness Agent Finished.")
+
+            completeness_agent_summary = summary_result.get('output', f"Error: No output from Document Completeness agent for {customer_name}")
+            print(f"Completeness Agent Summary: {completeness_agent_summary}")
+            overall_status_match = re.search(r"Overall: (Complete|Incomplete)", completeness_agent_summary)
+            address_status_match = re.search(r"Address: (Complete|Incomplete)", completeness_agent_summary)
+            identity_status_match = re.search(r"Identity: (Complete|Incomplete)", completeness_agent_summary)
+            miss_docs_status_match = re.search(r"Missing documents: (.*?)(?:,|$)", completeness_agent_summary)
+        
+            overall_status = overall_status_match.group(1) if overall_status_match else None
+            address_status = address_status_match.group(1).strip() if address_status_match else "Unknown Customer"
+            identity_status = identity_status_match.group(1).strip() if identity_status_match else ""
+            miss_docs_status = miss_docs_status_match.group(1).strip() if miss_docs_status_match else None
+    
+            st.subheader("Document Completeness Status")
+            
+            #st.subheader("Documents available for "+ customer_name)
+    
+            data= {"Customer Name":[customer_name],"Identity Status":[identity_status],"Address Status":[address_status],"Overall Status":[overall_status]}
+            #output_df= pd.DataFrame(data)
+            st.text(data)
+    
+            #st.success(completeness_agent_summary)
+            st.badge(completeness_agent_summary, color= "orange")
+    
+            updated_state = {**state,
+                        "completeness_agent_summary": completeness_agent_summary,
+                        'error': None} # Clear previous errors if successful
+            if overall_status == "Complete":
+                st.success("All documents are complete, Please move on to Accuracy!",icon=":material/thumb_up:")
+                #st.badge("All documents are complete, Please move on to Accuracy!", icon=":material/thumb_up:", color="green")
+
+            else:
+                #st.text(output_df["Identity Status"])
+                if data["Identity Status"] == "Incomplete" and data["Address Status"] == "Incomplete":
+                    final_result = f"Process terminated for {customer_name} Identity and Address Proof NOT Submitted. Email Triggered for Incomplete Document."
+                    st.error(final_result,icon=":material/thumb_down:")
+                
+                elif data["Identity Status"] == "Incomplete":
+                    final_result = f"Process terminated for {customer_name} Identity Proof NOT Submitted. Email Triggered for Incomplete Document."
+                    st.error(final_result,icon=":material/thumb_down:")
+
+                elif data["Address Status"] == "Incomplete":
+                    final_result = f"Process terminated for {customer_name} Address Proof NOT Submitted. Email Triggered for Incomplete Document."
+                    st.error(final_result,icon=":material/thumb_down:")
+                    #st.badge("All documents are complete, Please move on to Accuracy!", icon=":material/thumb_up:", color="green")            
+                
+            return updated_state
+
+    except Exception as e:
+        print(f"An unexpected error occurred in call_check_docs_completeness_node: {e}")
+        st.text(e)
+        return {**state,
+                'error': f"An unexpected error occurred in completeness check step: {e}",
+                'final_response': f"An unexpected error occurred during the completeness check step: {e}"}
+
+
+##################################t########### FUNCTION 2 (GMAIL AGENT)
+def call_gmail_agent_node(state: GraphState) -> GraphState:
+    try:
+        #path="C:\\Users\\shell\\Gmail_Agent"
+        #os.chdir(path)
+     
+        
+        print("\n\n--------------------Calling Gmail Agent--------------------")
+        st.subheader("Invoking MailCast Agent...")
+    
+    
+        # Connect to Gmail and tools
+        credentials = get_gmail_credentials(
+             token_file="token.json",
+             scopes=["https://mail.google.com/"],
+             client_secrets_file="credentials.json",
+        )
+        api_resource = build_resource_service(credentials=credentials)
+        toolkit = GmailToolkit(api_resource=api_resource)
+        # IMPORTANT: Call model_rebuild()
+        GmailToolkit.model_rebuild()
+        tools = toolkit.get_tools()
+        #print("\n\n--------------------Gmail toolkit initialized-------------------") 
+        instructions = """You are an assistant that generates response.When you successfully complete an action (like creating an email draft), return the mail body. After creating the draft, confirm its creation and say you are ready for the next request."""
+        base_prompt = hub.pull("langchain-ai/openai-functions-template")
+        prompt = base_prompt.partial(instructions=instructions)
+        agent = create_tool_calling_agent(llm, tools, prompt)
+        # Initialize Agent Executor
+        gmail_agent_executor = AgentExecutor(agent=agent,tools=tools,verbose=True,return_intermediate_steps=True,handle_parsing_errors=True) 
+    
+        id_comparison_flag=state.get("id_comparison_flag")
+    
+        print("id_comparison_flag: ",id_comparison_flag)
+        if id_comparison_flag is None:
+            doc_completeness_output= state["completeness_agent_summary"]
+            customer_name= state["customer_name"]
+        
+        
+            overall_status_match = re.search(r"Overall: (Complete|Incomplete)", doc_completeness_output)
+            address_status_match = re.search(r"Address: (Complete|Incomplete)", doc_completeness_output)
+            identity_status_match = re.search(r"Identity: (Complete|Incomplete)", doc_completeness_output)
+            miss_docs_status_match = re.search(r"Missing documents: (.*?)(?:,|$)", doc_completeness_output)
+        
+            overall_status = overall_status_match.group(1) if overall_status_match else None
+            address_status = address_status_match.group(1).strip() if address_status_match else "Unknown Customer"
+            identity_status = identity_status_match.group(1).strip() if identity_status_match else ""
+            miss_docs_status = miss_docs_status_match.group(1).strip() if miss_docs_status_match else None
+        
+        
+            #print("\n\n--------------------LLM initialized--------------------") 
+        
+            if overall_status=="Incomplete":
+                time.sleep(2)
+                #print("-----------Entered Web Seach Gmail Agent-------------")
+                email_id="parthgoel.job@gmail.com"
+                
+                email_sent_input = f''' Instructions 
+                                        Perform all tasks using the provided dataset: SPB_PEP.
+                                        Ensure you read the contents from the file as it is.
+                                        Present outputs in well-structured format where applicable.
+                                        Do not print Python code in the output.
+                                        Tasks 
+                                        Task 1:
+                                        Send email from me, Parth, to the customer called {customer_name}, whose email address is {email_id}
+                                        Subject line of emails should be Incomplete Document| KYC Application |  {customer_name}
+                                        Do not assume anything and send only what is present in {doc_completeness_output}
+                                        Content of the emails should be formal and it should say that customer's documents are incomplete.
+                                        From the {doc_completeness_output} tell the customor which document is not present, for example in the {doc_completeness_output} where it is Incomplete which means that particular document is missing
+                                        Ask the customer to provide the unavailable document to proceed with the application
+                                        Make the content formal and very well structured.
+                                        Remember we are sending a mail to our customer so content should be very good
+                                        Format the content properly by adding new paragraphs wherever require 
+                                        Expected Output:
+                                        1.if Task is successful kindly return the mail body"
+                                        '''
+                final_response=process_chat(gmail_agent_executor, email_sent_input)
+                print("--------------------Mails are sent to customers for Incomplete documents-------------------")
+                st.subheader("Email trigerred")
+                #st.error("Customer has been informed regarding document incompleteness via email !")
+                st.badge("Customer has been informed regarding document incompleteness via email !", icon=":material/warning:", color="orange")
+                st.text(final_response)
+
+            elif overall_status=="Complete":
+                #st.success("All documents are complete, Please move on to Accuracy!")
+                st.badge("All documents are complete, Please move on to Accuracy!", icon=":material/check:", color="green")
+    
+    
+        elif id_comparison_flag is not None:
+            
+            comparison_result=state.get("comparison_result")
+            rag_output=state.get("rag_output")
+            final_df_output=state.get("final_df_output")
+            customer_name= state["customer_name"]
+    
+            print("rag_output: ",rag_output)
+            print("final_df_output: ",final_df_output)
+            info_list = []
+    
+            if rag_output["Passport"] != final_df_output["Passport"]:
+                
+                info_list.append("Passport Number")
+    
+            elif rag_output["SSN"] != final_df_output["SSN"]:
+                
+                info_list.append("SSN Number")
+    
+            elif rag_output["Address"] != final_df_output["Address"]:
+                
+                info_list.append("Address")
+            
+            print("info_list: ",info_list)
+    
+            time.sleep(2)
+                #print("-----------Entered Web Seach Gmail Agent-------------")
+            email_id="parthgoel.job@gmail.com"
+                
+            email_sent_input = f''' Instructions 
+                                        Perform all tasks.
+                                        Ensure you read the contents from the file as it is.
+                                        Present outputs in well-structured format where applicable.
+                                        Do not print Python code in the output.
+                                        Tasks 
+                                        Task 1:
+                                        Send email from me, Parth, to the customer called {customer_name}, whose email address is {email_id}
+                                        Subject line of emails should be Document Mismatch| KYC Application |  {customer_name}
+                                        Do not assume anything and send the mail stating that customer's document does not match with the data provided in KYC form.
+                                        Content of the emails should be formal and it should say that customer's document does not match with the data provided in KYC form.
+                                        From the {info_list} tell the customor which field does not match with the data, for example in the {info_list} if Address in mentioned, that means Adress provided in KYC form does not match with address present in document
+                                        Ask the customer to refill the KYC form with correct information and submit it to proceed it with application
+                                        Make the content formal and very well structured.
+                                        Remember we are sending a mail to our customer so content should be very good
+                                        Format the content properly by adding new paragraphs wherever require 
+                                        Expected Output:
+                                        1.if Task is successful kindly return the mail body"
+                                        '''
+            final_response=process_chat(gmail_agent_executor, email_sent_input)
+            st.subheader("Email trigerred")
+            #st.error("Customer has been informed regarding wrong information via email !")
+            st.badge("Customer has been informed regarding wrong information via email !", icon=":material/warning:", color="orange")
+            st.text(final_response)
+            print("--------------------Mails are sent to customers for wrong information-------------------")
+    
+    
+        return {**state,
+                    'final_response': final_response}
+
+    except Exception as e:
+        print(f"An unexpected error occurred in call_check_docs_completeness_node: {e}")
+        st.text(e)
+        return {**state,
+                'final_response': f"An unexpected error occurred during the Email agent: {e}"}
+
+
+
+
+# --- Create the Supervisor Node (Further Revised) ---
+def supervisor_agent_node(state: GraphState) -> GraphState:
+    """
+    Supervisor node that decides the next agent to call or if the process is finished.
+    Updates the state with the decision in the 'next' field.
+    Includes refined logic for finishing after the email step.
+    """
+    print("\n--- Executing supervisor_node ---")
+    query = state['query']
+    mongodb_output = state.get('mongodb_agent_output')
+    completeness_summary = state.get('completeness_agent_summary')
+    final_response = state.get('final_response') # Get the final response from potentially the Gmail agent
+    error = state.get('error')
+    messages = state.get('messages', [])
+
+    supervisor_llm_prompt = ChatPromptTemplate.from_messages([
+        ("system", """You are a supervisor agent. Your role is to direct the workflow based on the user's query
+         and the current state of the process.
+         Respond ONLY in the form of a dictionary consists of two keys where first key 'decision' is the name of the next worker or `FINISH` and second key 'Reason' illustrated the reason of the decision you make.
+
+         The available workers are:
+         - `DocuSeek`: Use this to retrieve document filenames for a customer from MongoDB. Requires a customer name.
+         - `DocuHunt`: Use this to analyze the output of the mongodb_agent and determine the KYC document completeness status. Requires the output string from the mongodb_agent.
+         - `MailCast`: Use this to send an email to the customer based on the completeness status. Requires the completeness summary from the completeness_agent.
+
+         The typical process flow for a KYC completeness check is:
+         1. Receive query about a customer's KYC completeness.
+         2. Call `DocuSeek` to get documents.
+         3. Call `DocuHunt` to check completeness based on mongodb output.
+         4. If documents are incomplete based on the completeness summary, call `MailCast` to send an email to the customer about missing documents.
+         5. If documents are complete (as indicated in the completeness summary), the task is `AI Supervisor AccuSure`.
+         6. If `MailCast` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+         7. If an error occurred in any step, the task should finish.
+
+         Current state:
+         Query: {query}
+         MongoDB Output: {mongodb_output}
+         Completeness Summary: {completeness_summary}
+         Final Response: {final_response}
+         Error: {error}
+
+         Based on the user's query and the current state, decide which worker should act next or if the process is finished (`FINISH`).
+         If there is an error in the state, respond with `FINISH`.
+         If the 'Completeness Summary' indicates "Overall: Complete", respond with `AI Supervisor AccuSure`.
+         If the 'Final Response' indicates that the email action was completed, respond with `FINISH`.
+         Respond ONLY in the form of a dictionary consists of two keys where first key 'decision' is the name of the next worker or `FINISH` and second key 'Reason' illustrated the reason of the decision you make.
+         Available workers: DocuSeek, DocuHunt, MailCast, FINISH, `AI Supervisor AccuSure`
+         """),
+        MessagesPlaceholder(variable_name="messages") # Include message history for context
+    ])
+    st.divider()
+
+    supervisor_input = {
+        "query": query,
+        "mongodb_output": mongodb_output if mongodb_output is not None else "N/A",
+        "completeness_summary": completeness_summary if completeness_summary is not None else "N/A",
+        "final_response": final_response if final_response is not None else "N/A",
+        "error": error if error is not None else "N/A",
+        "messages": messages # Pass messages
+    }
+
+    try:
+        # Include a summary of the current state in the messages for the supervisor LLM
+        state_summary_message = f"""Current State Summary:
+                                    Query: {query}
+                                    MongoDB Output: {mongodb_output if mongodb_output is not None else "N/A"}
+                                    Completeness Summary: {completeness_summary if completeness_summary is not None else "N/A"}
+                                    Final Response: {final_response if final_response is not None else "N/A"}
+                                    Error: {error if error is not None else "N/A"}
+                                """
+        # Append the state summary to the messages
+        supervisor_input["messages"] = messages + [HumanMessage(content=state_summary_message, name="system_state")]
+
+
+        decision_output = llm.invoke(supervisor_llm_prompt.format_prompt(**supervisor_input)).content.strip()
+        #print(f"Supervisor decided: {decision}")
+        #st.text(decision_output)
+
+
+        #decision_final_output=(decision_output.content)  
+        decision_final_output= decision_output.replace("```json","")
+        decision_final_output= decision_final_output.replace("```","")
+        decision_final_output = ast.literal_eval(decision_final_output)
+
+        decision= decision_final_output.get("decision")
+        reason= decision_final_output.get("Reason")
+        #st.success(f"Supervisor Accuracy decided: {decision}")
+        #st.badge(f"Supervisor Accuracy decided: {decision}")
+
+
+        # Validate the decision
+        valid_decisions = ["DocuSeek", "DocuHunt", "MailCast", "FINISH","AI Supervisor AccuSure"]
+        if decision not in valid_decisions:
+             st.text(f"Warning: Supervisor returned invalid decision '{decision}'. Defaulting to FINISH.")
+             decision = "FINISH"
+
+        # --- Explicit Checks for Finishing Conditions ---
+        # This adds robustness in case the LLM doesn't perfectly follow the prompt
+        if error:
+             #st.text("Error detected in state, forcing FINISH.")
+             decision = "FINISH"
+        elif completeness_summary and "Overall: Complete" in completeness_summary:
+             #st.text("Completeness is complete, forcing Accuracy.")
+             decision = "AI Supervisor AccuSure"
+             
+        # Add a check for a specific phrase in the final_response indicating email completion
+        # You might need to adjust the string "Email sent created successfully"
+        elif final_response and "Email sent created successfully" in final_response:
+             #st.text("Email action completed, forcing FINISH.")
+             decision = "FINISH"
+        # --- End Explicit Checks ---
+
+
+        #st.write(f"Supervisor decided: {decision}")
+        #st.markdown(":blue-badge[Home]")
+        st.badge(f"AI Supervisor DocuSure decided: {decision}",icon=":material/supervisor_account:")
+        st.warning(f"Reason for decision: {reason}",icon=":material/supervisor_account:")
+        # if decision == "Accuracy":
+        #     st.subheader("Document Accuracy")
+            
+        
+        # Update the state with the decision for the conditional edge to read
+        updated_state = {**state,
+                         "next": decision}
+        return updated_state
+
+    except Exception as e:
+        print(f"Error in supervisor_agent_node: {e}")
+        st.text(e)
+        # If supervisor fails, update state to finish
+        return {**state, "next": "FINISH",
+                'error': f"Error in supervisor decision: {e}",
+                'final_response': f"An error occurred while determining the next step: {e}"}
+
+############################################################################################################################################
+##                                                                                                                                        ##
+##   ============================================================ ACCURACY STARTS HERE ==============================================     ##
+##                                                                                                                                        ##
+############################################################################################################################################
+
+llm_accuracy = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",
+                             temperature=0.3, # Lower temp for reliable tool use
+                             timeout=None,
+                             max_retries=5,
+                             google_api_key="AIzaSyCZQkH1q0LVm5bwbIB8AxD5BxLwHaMXa70"
+                            ) 
+
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+#===================================== Agent 1 :- Mongo db extractor
+
+
+
+########################################## Defining Function #################################################################
+
+from pymongo import MongoClient
+
+def mongo_db_accuracy_extractor(cust_name):
+    """
+    Extract the documents in binary format from Mongodb for the given customer name
+    
+    """    
+    print("\n--- Executing mongo_db_extractor ---")
+    available_docs = []
+    binary_docs = {}
+    custname = cust_name
+    docs_filepath={}
+    
+    # MongoDB connection
+    client = MongoClient("mongodb://localhost:27017/")
+    mongodb_database_name = "KYC_Customer_Docs"
+    db = client[mongodb_database_name]
+    collection = db[custname]
+    ssn_document = collection.find_one({"filename": custname + "_SSN.pdf"})
+    print("customer names ",custname)
+
+    try:
+        # SSN Document
+        ssn_document = collection.find_one({"filename": custname + "_SSN.pdf"})
+        if ssn_document:
+            available_docs.append("SSN Document is found")
+            ssn_pdf_binary = ssn_document['data']
+                
+            # Save it temporarily
+            ssn_filepath = "ssn_temp.pdf"
+            with open(ssn_filepath, "wb") as f:
+                f.write(ssn_pdf_binary)
+            docs_filepath["ssn"] = ssn_filepath
+
+        # Passport Document
+        passport_document = collection.find_one({"filename": custname + "_Passport.pdf"})
+        if passport_document:
+            available_docs.append("Passport Document is found")
+            passport_pdf_binary = passport_document['data']
+            
+            # Save it temporarily
+            passport_filepath = "passport_temp.pdf"
+            with open(passport_filepath, "wb") as f:
+                f.write(passport_pdf_binary)
+            docs_filepath["passport"] = passport_filepath
+        
+
+        # Utility Bill Document
+        bill_document = collection.find_one({"filename": custname + "_Bill.pdf"})
+        if bill_document:
+            available_docs.append("Utility Bill Document is found")
+            bill_pdf_binary = bill_document['data']
+            
+            # Save it temporarily
+            bill_filepath = "bill_temp.pdf"
+            with open(bill_filepath, "wb") as f:
+                f.write(bill_pdf_binary)
+            docs_filepath["bill"] = bill_filepath
+
+
+        # KYC Form Document
+        form_document = collection.find_one({"filename": custname + "_KYC_Form.pdf"})
+        if form_document:
+            available_docs.append("KYC Application Form Document is found")
+            form_pdf_binary = form_document['data']
+            
+            # Save it temporarily
+            form_filepath = "form_temp.pdf"
+            with open(form_filepath, "wb") as f:
+                f.write(form_pdf_binary)
+            docs_filepath["form"] = form_filepath
+
+        # Only print human-readable summary, not binary content
+        print(" Available Documents:", available_docs)
+
+        # Return structured summary + binary data
+        return {
+            "available_docs": available_docs,
+            "docs_filepath":docs_filepath}
+
+    except Exception as e:
+        print(f" Error during extraction: {e}")
+        return f"STATUS: ERROR, CUSTOMER: {custname}, MESSAGE: An error occurred: {e}"
+
+
+##################################################### Tool Creation ############################################################
+
+
+class mongo_db_accuracy_ToolInput(BaseModel):
+    """Input schema for the mongo_db_tool."""
+    customer_name: str = Field(description="The name of the customer whose documents need to find.")
+  
+
+mongo_db_accuracy_tool = Tool(
+    name="mongo_db_accuracy_extractor_tool",
+    func=mongo_db_accuracy_extractor,
+    description=
+    """Useful when you need to extract documents for a specific customer from mongo db and provide the binary conversions of
+    the documents. This tool requires the customer's full name as input. Returns a binary_pdf""",
+    args_schema=mongo_db_accuracy_ToolInput,
+     )
+
+   
+
+
+################################################### Agent Creation ###########################################################
+
+#tools
+mongo_db_accuracy_agent_tools = [mongo_db_accuracy_tool]
+
+#agent_prompt
+mongo_db_accuracy_agent_prompt = PromptTemplate.from_template("""
+You are an agent that takes customer name as input and checks available documents in MongoDB.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the customer name)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the customer name
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: Return the exact dictionary object you got from the tool. Do not add explanation or reformat it.
+
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+
+
+# Step 1: Create the agent separately
+mongo_db_accuracy_agent = create_react_agent(
+    llm_accuracy,
+    mongo_db_accuracy_agent_tools,
+    mongo_db_accuracy_agent_prompt
+)
+
+# Step 2: Create the executor with the correct named parameter
+mongo_db_accuracy_executor = AgentExecutor(
+    agent=mongo_db_accuracy_agent,  #  correct usage
+    tools=mongo_db_accuracy_agent_tools,
+    verbose=True,
+    handle_parsing_errors=True
+)
+
+
+
+################################################ Node Creation ##############################################################
+
+import ast
+
+def mongo_db_accuracy_agent_node(state: GraphState) -> GraphState:
+    """
+    Executes the MongoDB extractor agent.
+    Extracts customer name, fetches document availability, and updates the state.
+    """
+    print("\n--- Executing mongo_db_agent_node ---")
+
+    
+
+    
+    query = state['query_accuracy']
+
+    try:
+        # Step 1: Extract customer name from query
+        name_extraction_prompt = f"""Extract the full customer name from the following query: "{query}".
+        If no name is clearly mentioned, respond with "None".
+        Example: "Get documents for John Doe" -> "John Doe".
+        Example: "Check completeness for Alice Smith" -> "Alice Smith".
+        Example: "Perform OCR on cust documents submitted by Alice Smith." -> "Alice Smith".
+        
+        Extracted Name:"""
+
+        customer_name_response = llm_accuracy.invoke(name_extraction_prompt).content.strip().strip('"')
+        print(customer_name_response)
+       
+
+        customer_name = customer_name_response
+        
+        
+        if not customer_name or customer_name.lower() == "none":
+            raise ValueError("Customer name could not be extracted from the query.")
+        print(f" Extracted customer name: {customer_name}")
+
+        # Step 2: Invoke MongoDB Agent
+        print(" Invoking mongo_db_agent...")
+        st.subheader("Invoking DocuFetch agent...")
+        captured_output = io.StringIO()
+        with redirect_stdout(captured_output):
+            try:
+                mongo_db_result = mongo_db_accuracy_executor.invoke({"input": customer_name})
+                
+            except Exception as e:
+                print(f"An error occurred during agent execution: {e}")
+                    
+
+        # Get the captured string value
+        agent_trace = captured_output.getvalue()
+        cleaned_agent_trace = remove_ansi_codes(agent_trace)
+        formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+        st.warning("Thought process of agent")
+        st.success(formatted_agent_trace,icon=":material/lightbulb:")           
+        
+        print(" mongo_db_agent finished.")
+
+        mongo_db_accuracy_output = mongo_db_result.get("output", None)
+        if not mongo_db_accuracy_output:
+            raise ValueError("No output returned from MongoDB extractor.")
+        print(f"---------mongo_db_output is {mongo_db_accuracy_output}----------")
+
+        # Step 3: If output is a string, try converting to dict
+        if isinstance(mongo_db_accuracy_output, str):
+            try:
+                mongo_db_accuracy_output = ast.literal_eval(mongo_db_accuracy_output)
+            except Exception as e:
+                raise ValueError(f"Tool returned a non-dict output: {mongo_db_accuracy_output}")
+
+
+        # Step 4: Extract information from output
+        available_docs = mongo_db_accuracy_output.get("available_docs", [])
+        docs_filepath = mongo_db_accuracy_output.get("docs_filepath", {})
+
+        st.text(available_docs)
+
+        print(" Document availability summary:", available_docs)
+
+        # Step 5: Update LangGraph state
+        updated_state = {
+            **state,
+            "customer_name": customer_name,
+            "mongo_db_accuracy_output": mongo_db_accuracy_output,
+            "docs_filepath": docs_filepath,
+            "available_docs":available_docs,
+            "error": None
+        }
+
+        return updated_state
+
+    except Exception as e:
+        print(f" An unexpected error occurred in mongo_db_agent: {e}")
+        st.text(e)
+        return {
+            **state,
+            "error": f"An unexpected error occurred in mongo_db_agent step: {e}"
+        }
+
+
+
+
+
+#===================================== Agent 2 :- SSN OCR
+
+
+########################################## Defining Function #################################################################
+
+########################################## Defining Function #################################################################
+
+def ssn_ocr(ssn_doc_path):
+    """
+    Perform OCR on top of docs_filepath.get("ssn") and extract Customer Name ( like John Doe) and SSN number like 409-52-8226 
+    
+    """    
+    #---------------------------------------- OCR For SSN-----------------------------
+    print("---------Performing OCR for SSN----------")
+    
+    ## calling function
+    print("SSN Doc Path",ssn_doc_path)
+    ssn_image = pdf2image.convert_from_path(ssn_doc_path,poppler_path=r"C:\Users\nidhi\poppler-24.08.0\Library\bin")
+    ## OCR
+    ssn_text=[]
+    for i in range(0, len(ssn_image)):
+        ssn_text.append(pytesseract.image_to_string(ssn_image[i]))
+
+    
+    
+    # Optional: remove newline characters from elements if you want flat text
+    ssn_cleaned_data = [item.replace('\n', ' ') for item in ssn_text]      
+    # Join with comma
+    ssn_result = ', '.join(ssn_cleaned_data)            
+    #print(f"OCR Text - {ssn_result}")
+
+    
+    ## extracting information using LLM
+
+    ## extracting information using LLM
+    ssn_prompt_template = ChatPromptTemplate.from_template(
+        """
+        Extract the information from the text below and return a dictionary containing 'Customer_Name' and 'SSN'.
+        If any value is missing, leave it as an empty string ''.
+        Do not return anything except the dictionary.
+        Output format example: {{'Customer_Name': 'John Doe', 'SSN': '409-52-8226'}}
+        Text:
+        {text}
+        """
+    )
+    
+    ssn_chain=ssn_prompt_template | llm_accuracy 
+    ssn_output=ssn_chain.invoke({"text":ssn_result})
+    ssn_final_output=(ssn_output.content)   
+    type(ssn_final_output) 
+    return ssn_final_output
+        
+
+
+##################################################### Tool Creation ############################################################
+
+
+class ssn_ocr_ToolInput(BaseModel):
+    """Input schema for the ssn_ocr_tool."""
+    ssn_doc_path: str = Field(description="The file path of the customer for which document had been extracted")
+  
+
+ssn_ocr_tool = Tool(
+    name="ssn_tool",
+    func=ssn_ocr,
+    description=
+    """Useful when you need to perform OCR on SSN document available in ssn_doc_path path.
+    This tool requires the ssn_doc_path as input. Returns a string with  Customer_Name & SSN Number
+    """,
+    args_schema=ssn_ocr_ToolInput,
+     )
+
+################################################### Agent Creation ###########################################################
+
+#tools
+ssn_ocr_agent_tools = [ssn_ocr_tool]
+
+#agent_prompt
+ssn_ocr_agent_prompt = PromptTemplate.from_template("""
+You are an agent that takes ssn_doc_path as an input and perform OCR on top of it and extract Customer Name and SSN number from it.
+Your only task is to use the ssn_ocr_tool when given a ssn_doc_path.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the ssn_doc_path)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the customer name
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'ssn_ocr_tool'
+Return the dictionary object exactly as received from the tool. Do not paraphrase it.
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+
+
+# Step 1: Create the agent separately
+ssn_ocr_agent = create_react_agent(
+    llm_accuracy,
+    ssn_ocr_agent_tools,
+    ssn_ocr_agent_prompt
+)
+
+# Step 2: Create the executor with the correct named parameter
+ssn_ocr_executor = AgentExecutor(
+    agent=ssn_ocr_agent,  #  correct usage
+    tools=ssn_ocr_agent_tools,
+    verbose=True, # Set True to see nested agent's trace
+    handle_parsing_errors=True
+)
+
+
+
+def bill_ocr(bill_doc_path):
+    """
+    Perform OCR on top of docs_filepath.get("bill") and extract Customer Name ( like John Doe) and Address like 2437 MAPLE DRIVE, AURORA, IL 60502 
+    
+    """    
+    #---------------------------------------- OCR For bill-----------------------------
+    print("---------Performing OCR for bill----------")
+    
+    ## calling function
+    bill_image = pdf2image.convert_from_path(bill_doc_path,poppler_path=r"C:\Users\nidhi\poppler-24.08.0\Library\bin")
+    ## OCR
+    bill_text=[]
+    for i in range(0, len(bill_image)):
+        bill_text.append(pytesseract.image_to_string(bill_image[i]))
+    
+    # Optional: remove newline characters from elements if you want flat text
+    bill_cleaned_data = [item.replace('\n', ' ') for item in bill_text]      
+    # Join with comma
+    bill_result = ', '.join(bill_cleaned_data)            
+    #print(f"OCR Text - {bill_result}")
+    
+    ## extracting information using LLM
+
+    ## extracting information using LLM
+    bill_prompt_template = ChatPromptTemplate.from_template(
+        """
+        Extract the information from the text below and return a dictionary containing 'Customer_Name' and '
+        Address'.
+        If any value is missing, leave it as an empty string ''.
+        Do not return anything except the dictionary.
+        Output format example: {{'Customer_Name': 'John Doe', 'Address': '2437 MAPLE DRIVE, AURORA, IL 60502'}}
+        Text:
+        {text}
+        """
+    )
+    
+    bill_chain=bill_prompt_template | llm_accuracy 
+    bill_output=bill_chain.invoke({"text":bill_result})
+    bill_final_output=(bill_output.content)   
+    type(bill_final_output) 
+    return bill_final_output
+        
+
+
+##################################################### Tool Creation ############################################################
+
+
+class bill_ocr_ToolInput(BaseModel):
+    """Input schema for the bill_ocr_tool."""
+    bill_doc_path: str = Field(description="The file path of the customer for which document had been extracted")
+  
+
+bill_ocr_tool = Tool(
+    name="bill_tool",
+    func=bill_ocr,
+    description=
+    """Useful when you need to perform OCR on bill document available in bill_doc_path path.
+    This tool requires the bill_doc_path as input. Returns a string with  Customer_Name & Address
+    """,
+    args_schema=bill_ocr_ToolInput,
+     )
+
+################################################### Agent Creation ###########################################################
+
+#tools
+bill_ocr_agent_tools = [bill_ocr_tool]
+
+#agent_prompt
+bill_ocr_agent_prompt = PromptTemplate.from_template("""
+You are an agent that takes bill_doc_path as an input and perform OCR on top of it and extract Customer Name and Address from it.
+Your only task is to use the bill_ocr_tool when given a bill_doc_path.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the bill_doc_path)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the customer name
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'bill_ocr_tool'
+Return the dictionary object exactly as received from the tool. Do not paraphrase it.
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+
+# Step 1: Create the agent separately
+bill_ocr_agent = create_react_agent(
+    llm_accuracy,
+    bill_ocr_agent_tools,
+    bill_ocr_agent_prompt
+)
+
+# Step 2: Create the executor with the correct named parameter
+bill_ocr_executor = AgentExecutor(
+    agent=bill_ocr_agent,  #  correct usage
+    tools=bill_ocr_agent_tools,
+    verbose=True, # Set True to see nested agent's trace
+    handle_parsing_errors=True
+)
+
+
+
+def passport_ocr(passport_doc_path):
+    """
+    Perform OCR on top of docs_filepath.get("passport") and extract Customer Name ( like John Doe) and Passport like K1234579 
+    
+    """    
+    #---------------------------------------- OCR For passport-----------------------------
+    print("---------Performing OCR for passport----------")
+    
+    ## calling function
+    passport_image = pdf2image.convert_from_path(passport_doc_path,poppler_path=r"C:\Users\nidhi\poppler-24.08.0\Library\bin")
+    ## OCR
+    passport_text=[]
+    for i in range(0, len(passport_image)):
+        passport_text.append(pytesseract.image_to_string(passport_image[i]))
+    
+    # Optional: remove newline characters from elements if you want flat text
+    passport_cleaned_data = [item.replace('\n', ' ') for item in passport_text]      
+    # Join with comma
+    passport_result = ', '.join(passport_cleaned_data)            
+    #print(f"OCR Text - {passport_result}")
+    
+    ## extracting information using LLM
+
+    ## extracting information using LLM
+
+    
+    passport_prompt_template = ChatPromptTemplate.from_template(
+        """
+        Extract the information from the text below and return a dictionary containing 'Customer_Name' and '
+        Passport'.
+        If any value is missing, leave it as an empty string ''.
+        Do not return anything except the dictionary.
+        Output format example: {{'Customer_Name': 'John Doe', 'Passport': 'K1234579'}}
+        Text:
+        {text}
+        """
+    )
+    
+    passport_chain=passport_prompt_template | llm_accuracy 
+    passport_output=passport_chain.invoke({"text":passport_result})
+    passport_final_output=(passport_output.content)  
+    passport_final_output= passport_final_output.replace("```python","")
+
+    #type(passport_final_output) 
+    return passport_final_output
+        
+
+
+##################################################### Tool Creation ############################################################
+
+
+class passport_ocr_ToolInput(BaseModel):
+    """Input schema for the passport_ocr_tool."""
+    passport_doc_path: str = Field(description="The file path of the customer for which document had been extracted")
+  
+
+passport_ocr_tool = Tool(
+    name="passport_tool",
+    func=passport_ocr,
+    description=
+    """Useful when you need to perform OCR on passport document available in passport_doc_path path.
+    This tool requires the passport_doc_path as input. Returns a string with  Customer_Name & Passport
+    """,
+    args_schema=passport_ocr_ToolInput,
+     )
+
+################################################### Agent Creation ###########################################################
+
+#tools
+passport_ocr_agent_tools = [passport_ocr_tool]
+
+#agent_prompt
+passport_ocr_agent_prompt = PromptTemplate.from_template("""
+You are an agent that takes passport_doc_path as an input and perform OCR on top of it and extract Customer Name and Passport from it.
+Your only task is to use the passport_ocr_tool when given a passport_doc_path.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the passport_doc_path)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the customer name
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times, but should be just once for this task)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'passport_ocr_tool'.
+Return the dictionary object exactly as received from the tool. Do not paraphrase it.
+
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}
+""")
+
+##agent_executor
+#passport_ocr_executor = AgentExecutor(
+#    passport_ocr_agent=create_react_agent(llm, passport_ocr_agent_tools, passport_ocr_agent_prompt),
+#    tools=passport_ocr_agent_tools,
+#    verbose=True, # Set True to see nested agent's trace
+#    handle_parsing_errors=True
+#)
+
+
+# Step 1: Create the agent separately
+passport_ocr_agent = create_react_agent(
+    llm_accuracy,
+    passport_ocr_agent_tools,
+    passport_ocr_agent_prompt
+)
+
+# Step 2: Create the executor with the correct named parameter
+passport_ocr_executor = AgentExecutor(
+    agent=passport_ocr_agent,  #  correct usage
+    tools=passport_ocr_agent_tools,
+    verbose=True, # Set True to see nested agent's trace
+    handle_parsing_errors=True
+)
+
+
+
+################################################ Node Creation ##############################################################
+
+def ocr_agent_node(state: GraphState) -> GraphState:
+    """
+    Invokes the ssn_ocr_executor, bill_ocr_executor and passport_ocr_executor Agent Executor.
+    Expects 'query' in state as text, extracts customer name, and passes to the agent.
+    Updates state with the ssn_ocr_agent, bill_ocr_agent, passport_ocr_agent agent's final output.
+    """
+    print("\n--- Executing ssn_ocr_agent ---")
+    query = state['query_accuracy']
+
+    print("doc-filepath",state['docs_filepath'])
+    
+    
+    ### extracting the ssn file path from state
+    #query=state['docs_filepath']
+    docs_filepath = state.get("docs_filepath", {})
+    
+    ssn_doc_path = docs_filepath.get("ssn")
+    bill_doc_path = docs_filepath.get("bill")
+    passport_doc_path = docs_filepath.get("passport")
+    available_docs = state.get("available_docs", {})
+
+    try:
+        # Extract customer name from the original query
+        # Using a simple LLM call as before for robustness
+        name_extraction_prompt = f"""Extract the full customer name from the following query: "{query}". If no name is clearly mentioned, respond with "None".
+        Example: "Get documents for John Doe" -> "John Doe"
+        Example: "Check completeness for Alice Smith" -> "Alice Smith"
+        Example: "Process my documents" -> "None"
+        Extracted Name:"""
+        #customer_name_response = llm.invoke(name_extraction_prompt).content.strip()
+
+        # if customer_name_response == 'none' or not customer_name_response:
+        #      raise ValueError("Customer name could not be extracted from the query.")
+
+        st.subheader("Invoking IDQuest agent...")
+        customer_name = state['customer_name']
+        if customer_name == 'none' or not customer_name:
+            raise ValueError("Customer name could not be extracted from the query.")
+        print(f"Extracted customer name: {customer_name}")
+
+        if "SSN Document is found" in available_docs:
+            with st.spinner("Performing the SSN OCR ..." ):
+                st.subheader("SSN Document")
+                pdf_viewer(input=ssn_doc_path,width=700,height=300)
+                # Invoke the ocr_docs_availability_agent Agent Executor with the extracted name
+                print("Invoking ssn_ocr_agent Agent using ssn_doc_path...")
+                captured_output = io.StringIO()
+                with redirect_stdout(captured_output):
+                    try:
+                        ssn_ocr_result = ssn_ocr_executor.invoke({"input": ssn_doc_path})
+                    
+                    except Exception as e:
+                        st.text(e)
+                        print(f"An error occurred during agent execution: {e}")
+                        
+                
+                # Get the captured string value
+                agent_trace = captured_output.getvalue()
+                cleaned_agent_trace = remove_ansi_codes(agent_trace)
+                formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+                st.warning("Thought process of agent")
+                st.success(formatted_agent_trace,icon=":material/lightbulb:")
+                st.text("ssn_ocr_agent Agent Finished.")
+        
+                # The final output of the MongoDB agent is the result string from the tool
+                ssn_ocr_output = ssn_ocr_result.get('output', f"Error: No output from docs_availability_result for {customer_name}")
+                #print(f"ssn_ocr_agent Agent Output: {ssn_ocr_output}")
+                
+        
+                st.subheader("SSN OCR Result")
+                st.text(ssn_ocr_output)
+                st.divider()
+                # Update the state with the customer name and the agent's output
+                print("ssn file output",ssn_ocr_output)
+
+        else:
+            ssn_ocr_output= ""
+
+        if "Passport Document is found" in available_docs:
+            with st.spinner("Performing the Passport OCR ..." ):
+                customer_name = state['customer_name']
+                if customer_name == 'none' or not customer_name:
+                     raise ValueError("Customer name could not be extracted from the query.")
+                print(f"Extracted customer name: {customer_name}")
+                st.subheader("Passport Document")
+                pdf_viewer(input=passport_doc_path,width=700,height=300)
+                
+                # Invoke the ocr_docs_availability_agent Agent Executor with the extracted name
+                print("Invoking passport_ocr_agent Agent using passport_doc_path...")
+                captured_output = io.StringIO()
+                with redirect_stdout(captured_output):
+                    try:
+                        passport_ocr_result = passport_ocr_executor.invoke({"input": passport_doc_path})
+                    
+                    except Exception as e:
+                        st.text(e)
+                        print(f"An error occurred during agent execution: {e}")
+                        
+    
+                # Get the captured string value
+                agent_trace = captured_output.getvalue()
+                cleaned_agent_trace = remove_ansi_codes(agent_trace)
+                formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+    
+                st.warning("Thought process of agent")
+                st.success(formatted_agent_trace,icon=":material/lightbulb:")
+                
+                print("passport_ocr_agent Agent Finished.:", passport_ocr_result)
+        
+                # The final output of the MongoDB agent is the result string from the tool
+                passport_ocr_output = passport_ocr_result.get('output', f"Error: No output from docs_availability_result for {customer_name}")
+                #print(f"passport_ocr_agent Agent Output: {passport_ocr_output}")
+        
+                st.subheader("Passport OCR Result")
+                st.text(passport_ocr_output)
+
+                st.divider()
+        
+                # Update the state with the customer name and the agent's output
+                print("passport file output",passport_ocr_output)
+
+        else:
+            passport_ocr_output= ""
+
+        if "Utility Bill Document is found" in available_docs:
+            with st.spinner("Performing the Bill OCR ..." ):
+                customer_name = state['customer_name']
+                if customer_name == 'none' or not customer_name:
+                     raise ValueError("Customer name could not be extracted from the query.")
+                print(f"Extracted customer name: {customer_name}")
+                st.subheader("Utility Bill Document")
+                pdf_viewer(input=bill_doc_path,width=700,height=500)
+                # Invoke the ocr_docs_availability_agent Agent Executor with the extracted name
+                print("Invoking bill_ocr_agent Agent using bill_doc_path...")
+                captured_output = io.StringIO()
+                with redirect_stdout(captured_output):
+                    try:
+                        bill_ocr_result = bill_ocr_executor.invoke({"input": bill_doc_path})
+                    
+                    except Exception as e:
+                        st.text(e)
+                        print(f"An error occurred during agent execution: {e}")
+                        
+    
+                # Get the captured string value
+                agent_trace = captured_output.getvalue()
+                cleaned_agent_trace = remove_ansi_codes(agent_trace)
+                formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+                st.warning("Thought process of agent")
+                st.success(formatted_agent_trace,icon=":material/lightbulb:")
+               
+                print("bill_ocr_agent Agent Finished.")
+        
+                # The final output of the MongoDB agent is the result string from the tool
+                bill_ocr_output = bill_ocr_result.get('output', f"Error: No output from docs_availability_result for {customer_name}")
+    
+                st.subheader("Bill OCR Result")
+                st.text(bill_ocr_output)
+                #print(f"bill_ocr_agent Agent Output: {bill_ocr_output}")
+        
+                # Update the state with the customer name and the agent's output
+                print("bill file output",bill_ocr_output)
+
+        else:
+            bill_ocr_output= ""
+            
+        ssn_output = ssn_ocr_output
+        passport_output = passport_ocr_output
+        bill_output = bill_ocr_output
+        
+        
+        final_result = {
+            "Customer_Name": "",
+            "SSN": "",
+            "Passport": "",
+            "Address": ""
+        }
+        customer_name = state['customer_name']
+        try:
+            if ssn_output is None:
+                ssn_dict={"Customer_Name":customer_name,"SSN": ""}
+    
+            else:
+                ssn_dict = parse_ocr_output(ssn_output, ["Customer_Name", "SSN"])
+    
+            if passport_output is None:
+                passport_dict={"Customer_Name":customer_name,"Passport": ""}
+    
+            else:
+                passport_dict = parse_ocr_output(passport_output, ["Customer_Name", "Passport"])
+                
+            bill_dict = parse_ocr_output(bill_output, ["Customer_Name", "Address"])
+        
+            for d in [ssn_dict, passport_dict, bill_dict]:
+                for k, v in d.items():
+                    if v and final_result.get(k) == "":
+                        final_result[k] = v
+        
+            print(" Final merged dictionary:", final_result)
+    
+            st.subheader("Final Merged Result")
+            data_final= final_result
+                    
+            final_data= {"Customer Name":[data_final["Customer_Name"]],"SSN Number":[data_final["SSN"]],"Passport Number":[data_final["Passport"]],"Address":[data_final["Address"]]}
+            #final_df= pd.DataFrame(final_data)
+            st.text(final_data)
+                
+            updated_state = {**state,
+                        'customer_name': customer_name,
+                        'ssn_ocr_output': ssn_ocr_output,
+                        'passport_ocr_output': passport_ocr_output,
+                        'bill_ocr_output': bill_ocr_output,
+                        'final_df_output': final_result,
+                        'error': None} # Clear previous errors if successful
+            return updated_state
+
+        except Exception as e:
+            print(f"An unexpected error occurred in final_df_agent: {e}")
+            return {**state,
+                     'error': f"An unexpected error occurred in final_df_agent step: {e}"}
+
+    except Exception as e:
+        print(f"An unexpected error occurred in ssn_ocr_agent: {e}")
+        st.text(e)
+        return {**state,
+                'error': f"An unexpected error occurred in ssn_ocr_agent step: {e}"}
+
+
+#===================================== Agent 5 :- Dataframe creation
+
+import ast
+import re
+
+def parse_ocr_output(output: str, expected_keys: list) -> dict:
+    try:
+        # Try parsing as Python dictionary first
+        return ast.literal_eval(output)
+    except:
+        # Fallback: parse manually using regex
+        result = {}
+        for key in expected_keys:
+            match = re.search(f"{key}[:=] ?([A-Za-z0-9 \-]+)", output, re.IGNORECASE)
+            result[key] = match.group(1).strip() if match else ""
+        return result
+    
+# def final_df_agent_node(state: GraphState) -> GraphState:
+#     print("\n--- Executing final_df_agent_node ---")
+
+#     ssn_output = state.get("ssn_ocr_output", "")
+#     passport_output = state.get("passport_ocr_output", "")
+#     bill_output = state.get("bill_ocr_output", "")
+
+#     print("ssn_output",ssn_output)
+#     print("passport_output",passport_output)
+#     print("bill_output",bill_output)
+
+#     final_result = {
+#         "Customer_Name": "",
+#         "SSN": "",
+#         "Passport": "",
+#         "Address": ""
+#     }
+#     customer_name = state['customer_name']
+#     try:
+#         if ssn_output is None:
+#             ssn_dict={"Customer_Name":customer_name,"SSN": ""}
+
+#         else:
+#             ssn_dict = parse_ocr_output(ssn_output, ["Customer_Name", "SSN"])
+
+#         if passport_output is None:
+#             passport_dict={"Customer_Name":customer_name,"Passport": ""}
+
+#         else:
+#             passport_dict = parse_ocr_output(passport_output, ["Customer_Name", "Passport"])
+            
+#         bill_dict = parse_ocr_output(bill_output, ["Customer_Name", "Address"])
+    
+#         for d in [ssn_dict, passport_dict, bill_dict]:
+#             for k, v in d.items():
+#                 if v and final_result.get(k) == "":
+#                     final_result[k] = v
+    
+#         print(" Final merged dictionary:", final_result)
+
+#         st.subheader("Final Merged Result")
+#         data_final= final_result
+                
+#         final_data= {"Customer Name":[data_final["Customer_Name"]],"SSN Number":[data_final["SSN"]],"Passport Number":[data_final["Passport"]],"Address":[data_final["Address"]]}
+#         final_df= pd.DataFrame(final_data)
+#         st.dataframe(final_df)
+    
+#         updated_state = {
+#             **state,
+#             "final_df_output": final_result,
+#             "error": None
+#         }
+    
+#         return updated_state
+#     except Exception as e:
+#             print(f"An unexpected error occurred in final_df_agent: {e}")
+#             return {**state,
+#                     'error': f"An unexpected error occurred in final_df_agent step: {e}"}
+
+
+# def RAG_agent(state: GraphState) -> GraphState:
+#     print("\n--- Executing RAG Agent ---")
+
+#     cust_name = state.get("customer_name", "")
+
+#     print("cust_name",cust_name)
+
+#     if cust_name=="Anideep Basu":
+#         rag_output = {
+#                     "Customer_Name": "ANIDEEP BASU",
+#                     "SSN": "309-58-9317",
+#                     "Passport": "K1234579",
+#                     "Address": "2437 MAPLE DRIVE AURORA, IL 60502"
+#                     }
+
+#     elif cust_name=="Johnson White":
+#         rag_output = {
+#                     "Customer_Name": "Johnson White",
+#                     "SSN": "",
+#                     "Passport": "K0Q0655437",
+#                     "Address": "1945 CENTRAL STREET AURORA, IL 60502"
+#                     }
+#     elif cust_name=="Karen Young":
+#         rag_output = {
+#                     "Customer_Name": "KAREN YOUNG",
+#                     "SSN": "103-10-2049",
+#                     "Passport": "K4567890",
+#                     "Address": "1945 CENTRAL STREET AURORA, IL 60502"
+#                     }
+
+#     elif cust_name=="Maria Howard":
+#         rag_output = {
+#                     "Customer_Name": "MARIA HOWARD",
+#                     "SSN": "421-17-5058",
+#                     "Passport": "M4567890",
+#                     "Address": "789 WESTWOOD AVENUE AURDRA, IL 60505"
+#                     }
+
+#     else:
+#         rag_output = {
+#                     "Customer_Name": "",
+#                     "SSN": "",
+#                     "Passport": "",
+#                     "Address": ""
+#                     }
+
+#     print("RAG dictionary:", rag_output)
+
+#     st.subheader("RAG Result")
+#     rag= rag_output
+                
+#     rag_data= {"Customer Name":[rag["Customer_Name"]],"SSN Number":[rag["SSN"]],"Passport Number":[rag["Passport"]],"Address":[rag["Address"]]}
+#     rag_df= pd.DataFrame(rag_data)
+#     #rag_df= pd.DataFrame(rag.items(), columns=["Customer Name","SSN Number","Passport Number","Address"])
+#     st.dataframe(rag_df)
+#     #st.text(final_state["rag_output"])
+    
+#     updated_state = {
+#             **state,
+#             "rag_output": rag_output,
+#             "error": None
+#     }
+    
+#     return updated_state
+
+
+def RAG(form_doc_path):
+    """
+    Expects 'query' in state as text, extracts customer name, and passes to the agent.
+    Perform RAG on top of KYC Application Forms and extract information like Customer name, SSN Number, Passport Number and Address
+    and create a dictionary like {
+    "Customer_Name": "Charles Bell",
+    "SSN": "409-52-8226",
+    "Passport": "M2038455",
+    "Address": "123 Main Street, NY"}
+    
+    """   
+    
+    print("\n------------ Executing RAG -------------")
+ 
+    print(f"KYC Application form is present at {form_doc_path}")
+        
+
+    os.environ["OPENAI_API_KEY"]= "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"
+    
+
+    ########################## Load documents into Llamaindex
+    #SimpleDirectoryReader is used to load documents into LlamaIndex.
+    documents=SimpleDirectoryReader(input_files=[form_doc_path]).load_data() ##processes and returns the documents(as Document objects).
+    #documents #list of loaded documents.
+    
+    ##################### Chunking
+    spilitter =SentenceSplitter(chunk_size=1024)
+    nodes=spilitter.get_nodes_from_documents(documents) ##splits your full document into manageable parts called "nodes"
+    
+    
+    ################### Embeddings
+    Settings.llm=ChatOpenAI(model="gpt-3.5-turbo") ###Globally sets your default LLM for answering questions.
+    Settings.embeded_model=OpenAIEmbeddings(model="text-embedding-ada-002") ##Sets the embedding model used to turn document chunks into vectors (for similarity search).
+    
+    
+    ##################### Storing in Vectorstore
+    summary_index=SummaryIndex(nodes) ##Used to create a high-level summarization index from all nodes.
+    vector_index=VectorStoreIndex(nodes) ##Used for similarity-based retrieval (RAG-style).
+    
+    
+    ######################### Creating Engines for Retrieval
+    # Creates an engine that uses tree-based summarization — best for summarizing whole documents.
+    summary_query_engine=summary_index.as_query_engine(response_mode="tree_summarize",use_async=True) 
+    #Creates an engine for RAG-style question answering — retrieves and uses top relevant chunks.
+    vector_query_engine=vector_index.as_query_engine()
+    
+
+    ###################### Tool Creation
+    ##Wraps each query engine (summary, vector) as a tool.
+    summary_tool=QueryEngineTool.from_defaults(query_engine=summary_query_engine,
+        description=(
+            "Useful for summarization questions related to KYC Application Form"))
+    
+    vector_tool=QueryEngineTool.from_defaults(
+        query_engine=vector_query_engine,
+        description=(
+            "Useful for retrieving specific context from KYC Application Form" ))
+    
+    
+    ####################### Agent Creation
+    ####RouterQueryEngine — this is your smart agent that decides which tool to use based on the user question.
+    
+    query_engine=RouterQueryEngine(
+        selector=LLMSingleSelector.from_defaults(),
+        query_engine_tools=[summary_tool,vector_tool],
+        verbose=True)
+
+    
+    RAG_prompt_template = """
+        Retrieve the information from vectorstore and return a dictionary containing 
+        Customer_Name, SSN,Passport Number & Address.
+        If any value is missing, leave it as an empty string ''.
+        Do not return anything except the dictionary.
+        Output format example: {{"Customer_Name": "Charles Bell","SSN": "409-52-8226","Passport": "M2038455","Address": "123 Main Street, NY"}}
+        Text:
+        {text}
+        """
+
+    
+    try:
+        response = query_engine.query(RAG_prompt_template)
+        RAG_final_output = str(response).replace("```python", "")
+    except Exception as e:
+        print("RAG query failed:", e)
+        RAG_final_output = "{}"  # Or return an empty dictionary as string
+    
+    return RAG_final_output
+    
+
+
+
+##################################################### Tool Creation ############################################################
+
+
+class RAG_ToolInput(BaseModel):
+    """Input schema for the RAG_tool."""
+    passport_doc_path: str = Field(description="The file path of the customer document for which information had been extracted")
+  
+
+RAG_tool = Tool(
+    name="RAGG_tool",
+    func=RAG,
+    description=
+    """Useful when you need to perform RAG on KYC Application Form document available in form_doc_path path.
+    This tool requires the form_doc_path as input. Returns a string with Customer_Name, SSN,Passport Number & Address.
+    """,
+    args_schema=RAG_ToolInput,
+     )
+
+################################################### Agent Creation ###########################################################
+
+#tools
+RAG_agent_tools = [RAG_tool]
+
+#agent_prompt
+RAG_agent_prompt = PromptTemplate.from_template("""
+You are an agent that takes form_doc_path as input and performs RAG to extract Customer_Name, SSN, Passport Number & Address.
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be the form_doc_path)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the file path
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'RAG_tool'. Return the dictionary as-is.
+
+Begin!
+
+Question: {input}
+{agent_scratchpad}
+""")
+
+
+##agent_executor
+#RAG_executor = AgentExecutor(
+#    RAG_agent=create_react_agent(llm, RAG_agent_tools, RAG_agent_prompt),
+#    tools=RAG_agent_tools,
+#    verbose=True, # Set True to see nested agent's trace
+#    handle_parsing_errors=True
+#)
+
+# 1. Create your RAG agent using the tools and prompt
+RAG_agent = create_react_agent(
+    llm=llm_accuracy,
+    tools=RAG_agent_tools,
+    prompt=RAG_agent_prompt
+)
+
+
+RAG_executor = AgentExecutor(
+    agent=RAG_agent,
+    tools=RAG_agent_tools,
+    handle_parsing_errors=True,
+    verbose=True,
+)
+
+
+
+################################################ Node Creation ##############################################################
+
+def RAG_agent_node(state: GraphState) -> GraphState:
+    """
+    Invokes the RAG_executor Agent Executor.
+    Expects 'query' in state as text, extracts customer name, and passes to the agent.
+    Updates state with the RAG_agent agent's final output.
+    """
+    print("\n--- Executing RAG_agent ---")
+    query = state['query_accuracy']
+    
+    
+    ### extracting the passport file path from state
+    #query=state['docs_filepath']
+    docs_filepath = state.get("docs_filepath", {})
+    form_doc_path = docs_filepath.get("form")
+    st.subheader("Invoking FormFetch agent...")
+    with st.spinner("Performing the RAG ..." ):
+        try:
+            # Extract customer name from the original query
+            # Using a simple LLM call as before for robustness
+            name_extraction_prompt = f"""Extract the full customer name from the following query: "{query}". If no name is clearly mentioned, respond with "None".
+            Example: "Get documents for John Doe" -> "John Doe"
+            Example: "Check completeness for Alice Smith" -> "Alice Smith"
+            Example: "Process my documents" -> "None"
+            Extracted Name:"""
+            #customer_name_response = llm.invoke(name_extraction_prompt).content.strip()
+    
+            # if customer_name_response == 'none' or not customer_name_response:
+            #      raise ValueError("Customer name could not be extracted from the query.")
+    
+            customer_name = state['customer_name']
+            if customer_name == 'none' or not customer_name:
+                 raise ValueError("Customer name could not be extracted from the query.")
+            st.text(f"Extracted customer name: {customer_name}")
+            
+            pdf_viewer(input=form_doc_path,width=700,height=500)
+            # Invoke the ocr_docs_availability_agent Agent Executor with the extracted name
+            print("Invoking RAG_agent Agent using form_doc_path...")
+            captured_output = io.StringIO()
+            with redirect_stdout(captured_output):
+                try:
+                    RAG_result = RAG_executor.invoke({"input": form_doc_path})
+                
+                except Exception as e:
+                    print(f"An error occurred during agent execution: {e}")
+                    
+
+            # Get the captured string value
+            agent_trace = captured_output.getvalue()
+            cleaned_agent_trace = remove_ansi_codes(agent_trace)
+            formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+            st.warning("Thought process of agent")
+            st.success(formatted_agent_trace,icon=":material/lightbulb:")
+            
+            print("RAG_agent Agent Finished.:", RAG_result)
+    
+            # The final output of the MongoDB agent is the result string from the tool
+            RAG_output = RAG_result.get('output', f"Error: No output from docs_availability_result for {customer_name}")
+            #print(f"RAG_agent Agent Output: {RAG_output}")
+            
+            if RAG_output is None:
+                RAG_dict={"Customer_Name":customer_name,"SSN": "","Passport": "","Address": ""}
+    
+            else:
+                RAG_dict = parse_ocr_output(RAG_output, ["Customer_Name", "SSN","Passport","Address"])
+                
+            print("Final RAG dictionary:", RAG_dict)  
+            rag_output=RAG_dict
+
+            st.text(rag_output)
+    
+            st.subheader("RAG Result")
+            rag= rag_output
+                    
+            rag_data= {"Customer Name":[rag["Customer_Name"]],"SSN Number":[rag["SSN"]],"Passport Number":[rag["Passport"]],"Address":[rag["Address"]]}
+            #rag_df= pd.DataFrame(rag_data)
+            #rag_df= pd.DataFrame(rag.items(), columns=["Customer Name","SSN Number","Passport Number","Address"])
+            st.text(rag_data)
+    
+            # Update the state with the customer name and the agent's output
+            updated_state = {**state,
+                    'customer_name': customer_name,
+                    'rag_output': rag_output,
+                    'error': None} # Clear previous errors if successful
+            return updated_state
+
+        except Exception as e:
+            print(f"An unexpected error occurred in RAG_agent: {e}")
+            st.text(e)
+            return {**state,
+                    'error': f"An unexpected error occurred in RAG_agent step: {e}"}
+
+
+def normalize_dict(d):
+    return {k: v.strip().lower() if isinstance(v, str) else v for k, v in d.items()}
+
+
+
+#===================================== Agent 2 :- Supervisor Comparison Agent
+
+########################################## Defining Function #################################################################
+
+
+def llm_similarity_check(text1: str, text2: str):
+    """
+    Uses LLM to compare two text strings and determine if they are semantically similar.
+    Returns a tuple (is_similar: bool, confidence_score: float)
+    """
+    from langchain_core.output_parsers import StrOutputParser
+    from langchain_core.prompts import ChatPromptTemplate
+
+    prompt = ChatPromptTemplate.from_template("""
+    Compare the following two texts and determine if they refer to the same entity.
+
+    Text 1: "{text1}"
+    Text 2: "{text2}"
+
+    Respond with only a float score between 0.0 and 1.0 indicating similarity (1.0 = exact match, 0.0 = completely different).
+    """)
+
+    chain = prompt | llm_accuracy | StrOutputParser()
+
+    response = chain.invoke({"text1": text1, "text2": text2})
+    
+    score = float(response.strip())
+    return round(score, 2)
+
+
+
+import json
+from fuzzywuzzy import fuzz
+
+def comparison(comparison_string):
+    """
+    Expects comparison_string as inputs.
+    Expects a string like 'RAG Output: {.....}, OCR Output: {...}
+    Use the input string as it is, do not make change in input string
+    Compares the two two outputs after converting them to dictionary.
+    """
+    
+        
+    # st.text(comparison_string)
+    # Use non-greedy matching up to OCR Output, then capture until end
+    rag_output_match = re.search(r"RAG Output: \s*(\{.*?\})\s*, OCR Output:", comparison_string)
+    ocr_output_match = re.search(r"OCR Output: \s*(\{.*\})$", comparison_string)
+    
+    # st.text(rag_output_match)
+    # st.text(ocr_output_match)
+
+    rag_output = rag_output_match.group(1).strip() if rag_output_match else None
+    ocr_output = ocr_output_match.group(1).strip() if ocr_output_match else None
+
+    #print(rag_output_match)
+    #print(ocr_output_match)
+    
+    print(f"---RAG ouput---{rag_output}")
+    print(f"---OCR ouput---{ocr_output}")
+
+    rag_output=ast.literal_eval(rag_output)
+    ocr_output=ast.literal_eval(ocr_output)
+    
+    final_df_output=ocr_output
+    
+    # st.text(f"---RAG ouput---{rag_output}")
+    # st.text(f"---OCR ouput---{ocr_output}")
+
+
+    print("\n----------Checking Address Similarity using Fuzzy Lookup Logic----------------")
+
+    a = rag_output.get('Address', '')
+    b = final_df_output.get('Address', '')
+
+    # st.text(f"---RAG Address---{a}")
+    # st.text(f"---OCR Address---{b}")
+
+    print(f"comparison Address is {a}")
+
+    
+
+    try:
+        sim_score = fuzz.ratio(a.strip().lower(), b.strip().lower()) / 100.0
+        llm_sim_score=llm_similarity_check(a.strip().lower(), b.strip().lower())
+
+        
+        # st.text(f"Address similarity score (comparison vs OCR) is {sim_score:.2f}")
+
+        keys_to_include= {'Customer_Name', 'SSN','Passport'}
+        subset_rag = {k: rag_output[k] for k in keys_to_include}
+        subset_ocr = {k: final_df_output[k] for k in keys_to_include}
+            
+        subset_rag = normalize_dict(subset_rag)
+        subset_ocr = normalize_dict(subset_ocr)
+
+        # st.text(subset_rag)
+        # st.text(subset_ocr)
+
+        avg_sim_score = (sim_score + llm_sim_score)/2.0
+
+        if subset_rag== subset_ocr:
+            id_comparison_flag= "TRUE"
+
+        else:
+            id_comparison_flag= "FALSE"
+
+        # if avg_sim_score >= 0.80:
+        #     if subset_rag== subset_ocr:
+        #         comparison_result= "OCR extracted data matches with Form extracted data"
+        #         sim_result= f"Similarity score for Address is: {sim_score}"
+        #         comparison_flag= "TRUE"
+        #         llm_sim_result= f"LLM similarity score for Address is: {llm_sim_score}"
+        #         #print(f"OCR extracted data matches with Form extracted data")
+        #         final_result = f"Identity Proof Submitted and Verified, Address Proof Submitted and Verified. Approved by The Verification Team"
+        #         #st.success(comparison_result)
+        #         # st.success(comparison_result,icon=":material/thumb_up:")
+        #         # st.success(sim_result,icon=":material/thumb_up:")
+        #         # st.success(final_result,icon=":material/thumb_up:")
+        #     else:
+        #         comparison_result= "OCR extracted data does not match with Form extracted data"
+        #         sim_result= f"Similarity score for Address is: {sim_score}"
+        #         llm_sim_result= f"LLM similarity score for Address is: {llm_sim_score}"
+        #         comparison_flag= "FALSE"
+        #         # print(f"OCR extracted data does not match with Form extracted data")
+        #         # print(comparison_flag)
+        #         #st.error(comparison_result,icon=":material/thumb_down:")
+        #         # 🔍 Detailed mismatch debug
+        #         for key in subset_rag:
+        #             val1 = subset_rag[key]
+        #             val2 = subset_ocr.get(key, "")
+        #             if val1 != val2:
+        #                 print(f"Mismatch on '{key}': '{val1}' vs '{val2}'")
+        #                 if key =="SSN" or  key =="Passport":
+        #                     id_string="Identity Proof Submitted and NOT Verified"
+        #                 elif key !="SSN" or  key !="Passport":
+        #                     id_string="Identity Proof Submitted and Verified"
+
+        #                 add_string="Address Proof Submitted and Verified"
+        #                 # if key =="Address":
+        #                 #     add_string="Address Proof Submitted and NOT Verified"
+        
+        #                 # elif key !="Address":
+        #                 #     add_string="Address Proof Submitted and Verified"
+
+        #         final_result = f"{id_string}, {add_string}. Email Triggered for inaccurate details"
+        #         #st.error(final_result,icon=":material/thumb_down:")
+
+        # else:
+        #     comparison_result= "OCR extracted data does not match with Form extracted data"
+        #     sim_result= f"Similarity score for Address is: {sim_score}"
+        #     comparison_flag= "FALSE"
+        #     llm_sim_result= f"LLM similarity score for Address is: {llm_sim_score}"
+        #     # st.error(comparison_result,icon=":material/thumb_down:")
+        #     # st.error(sim_result,icon=":material/thumb_down:")
+        #     #st.text(f"similiarity score {sim_score}")
+        #     for key in subset_rag:
+        #         val1 = subset_rag[key]
+        #         val2 = subset_ocr.get(key, "")
+        #         if val1 != val2:
+        #             #st.text(f"Mismatch on '{key}': '{val1}' vs '{val2}'")
+        #             if key =="SSN" or  key =="Passport":
+        #                 id_string="Identity Proof Submitted and NOT Verified"
+        #             elif key !="SSN" or  key !="Passport":
+        #                 id_string="Identity Proof Submitted and Verified"
+
+        #             add_string="Address Proof Submitted and NOT Verified"
+
+        #         else:
+        #             id_string="Identity Proof Submitted and Verified"
+        #             add_string="Address Proof Submitted and NOT Verified"
+                            
+        #             # if key =="Address":
+        #             #     add_string="Address Proof Submitted and NOT Verified"
+        
+        #             # elif key !="Address":
+        #             #     add_string="Address Proof Submitted and Verified"
+
+        #     final_result = f"{id_string}, {add_string}. Email Triggered for inaccurate details"
+            #st.error(final_result,icon=":material/thumb_down:")
+                
+    except Exception as e:
+        print("Error in executing Fuzzy Lookup similarity:", e)
+        return {
+            "sim_score": 0.0,
+            "llm_sim_score":0.0,
+            "id_comparison_flag":""
+            }
+
+    return {
+            "sim_score": sim_score,
+            "llm_sim_score":llm_sim_score,
+            "id_comparison_flag":id_comparison_flag}
+
+##################################################### Tool Creation ############################################################
+
+from typing import Dict, Any
+from pydantic import BaseModel, Field
+
+class comparison_ToolInput(BaseModel):
+    comparison_string: str = Field(description=" string output from the agent")
+
+
+comparison_tool = Tool(
+    name="output_comparison_tool",
+    func=comparison,
+    description=
+    """Useful when you need to perform comparison on information extracted from KYC Application Form and information extracted 
+    from different OCR agents. 
+    This tool requires the comparison_string as input and will use the string as it is. Returns the comparison result as an output string
+    """,
+    args_schema=comparison_ToolInput,
+)
+
+################################################### Agent Creation ###########################################################
+
+# tools
+comparison_agent_tools = [comparison_tool]
+
+# agent_prompt
+from langchain.prompts import PromptTemplate
+
+from langchain.prompts import PromptTemplate
+
+comparison_agent_prompt = PromptTemplate.from_template("""
+You are an agent that us the input string as it is and extracts the RAG output and OCR output from the input string and then compare using the tools provided. Use the input string as-is
+
+You have access to the following tools:
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer (this will be a comparison_string, use the string as it is)
+Thought: think about how to use the tool
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action, which is the comparison_string
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I have successfully used the tool and have the result
+Final Answer: the result string from the 'output_comparison_tool'. Return the dictionary as-is.
+
+Begin!
+
+Question: {input}
+{agent_scratchpad}
+""")
+
+llm_compare = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",
+                             temperature=0.3, # Lower temp for reliable tool use
+                             timeout=5,
+                             max_retries=5,
+                             google_api_key="AIzaSyDyKn5MThkOwCgKFyTKIgfxDH8GfW5spjw"
+                            )
+
+comparison_agent = create_react_agent(
+    llm=llm_compare,
+    tools=comparison_agent_tools,
+    prompt=comparison_agent_prompt
+)
+
+comparison_executor = AgentExecutor(
+    agent=comparison_agent,
+    tools=comparison_agent_tools,
+    handle_parsing_errors=True,
+    verbose=True,
+)
+
+
+################################################ Node Creation ##############################################################
+
+def comparison_agent_node(state: GraphState) -> GraphState:
+    """
+    Executes the comparison_agent to compare information from a KYC form document and different OCR documents.
+    Expects 'final_df_output' and 'rag_output' to be present in state.
+    Returns updated state with parsed comparison output.
+    """
+    print("\n------------ Executing comparison_agent ---------------")
+
+    st.subheader("Invoking ValideX Agent")
+
+    try:
+        rag_output = state.get("rag_output", {})
+        final_df_output = state.get("final_df_output", {})
+
+        # Debug: Print inputs to verify they're dictionaries
+        print("RAG Output (Type):", type(rag_output), rag_output)
+        print("OCR Output (Type):", type(final_df_output), final_df_output)
+        
+        rag_output=str(rag_output)
+        final_df_output=str(final_df_output)
+        
+        # Debug: Print inputs to verify they're dictionaries
+        print("RAG Output (Type):", type(rag_output), rag_output)
+        print("OCR Output (Type):", type(final_df_output), final_df_output)
+        
+        user_input=f"RAG Output: {rag_output}, OCR Output: {final_df_output}"
+        #st.text("user_input "+user_input)
+        captured_output = io.StringIO()
+        with redirect_stdout(captured_output):
+            try:
+                comparison_result = comparison_executor.invoke({"input": user_input})
+                
+            except Exception as e:
+                st.text(e)
+                print(f"An error occurred during agent execution: {e}")
+                    
+
+        # Get the captured string value
+        agent_trace = captured_output.getvalue()
+        cleaned_agent_trace = remove_ansi_codes(agent_trace)
+        formatted_agent_trace = format_agent_trace(cleaned_agent_trace)
+        st.warning("Thought process of agent")
+        st.success(formatted_agent_trace,icon=":material/lightbulb:")
+
+        st.badge("RAG Result",color="orange")
+        st.text(rag_output)
+
+        st.badge("OCR Result",color="orange")
+        st.text(final_df_output)
+        
+
+        comparison_output = comparison_result.get('output', "Error: No output from comparison agent")
+
+        # Step 3: If output is a string, try converting to dict
+        if isinstance(comparison_output, str):
+            try:
+                comparison_output = ast.literal_eval(comparison_output)
+            except Exception as e:
+                raise ValueError(f"Tool returned a non-dict output: {comparison_output}")
+
+        sim_score = comparison_output.get("sim_score", [])
+        llm_sim_score = comparison_output.get("llm_sim_score", [])
+        # avg_sim_score = comparison_output.get("avg_sim_score", [])
+        # comparison_result = comparison_output.get("comparison_result", {})
+        id_comparison_flag = comparison_output.get("id_comparison_flag", {})
+        #final_result_string = comparison_output.get("final_result", {})
+
+        sim_result= f"Fuzzy logic similarity score for Address is: {round(sim_score,2)} and LLM similarity score for Address is {round(llm_sim_score,2)}"
+        st.success(sim_result)
+
+        id_result= f"Identity Comparison Flag is : {id_comparison_flag}"
+        st.success(id_result)
+
+        # if avg_sim_score >= 0.80:
+        #     if comparison_flag== "TRUE":
+        #         sim_result= f"Similarity score for Address is: {sim_score}"
+        #         llm_sim_result= f"LLM similarity score for Address is: {llm_sim_score}"
+        #         avg_sim_result= f"Average similarity score for Address is: {round(avg_sim_score,2)} (Fuzzy logic score is: {round(sim_score,2)} and LLM similarity score is {round(llm_sim_score,2)})"
+
+        #         final_result = f"Process completed for {state.get("customer_name")}, {final_result_string}"
+        #         #st.success(comparison_result)
+        #         st.success(comparison_result,icon=":material/thumb_up:")
+        #         st.success(avg_sim_result,icon=":material/thumb_up:")
+        #         # st.success(llm_sim_result,icon=":material/thumb_up:")
+        #         st.success(final_result,icon=":material/thumb_up:")
+        #     else:
+        #         sim_result= f"Similarity score for Address is: {sim_score}"
+                
+        #         st.error(comparison_result,icon=":material/thumb_down:")
+
+        #         final_result = f"Process completed for {state.get("customer_name")}, {final_result_string}"
+        #         st.error(final_result,icon=":material/thumb_down:")
+
+        # else:
+        #     sim_result= f"Similarity score for Address is: {sim_score}"
+        #     llm_sim_result= f"LLM similarity score for Address is: {llm_sim_score}"
+        #     avg_sim_result= f"Average similarity score for Address is: {round(avg_sim_score,2)} (Fuzzy logic score is: {round(sim_score,2)} and LLM similarity score is {round(llm_sim_score,2)})"
+        #     st.error(comparison_result,icon=":material/thumb_down:")
+        #     st.error(avg_sim_result,icon=":material/thumb_down:")
+        #     #st.error(llm_sim_result,icon=":material/thumb_down:")
+
+        #     final_result = f"Process completed for {state.get("customer_name")}, {final_result_string}"
+        #     st.error(final_result,icon=":material/thumb_down:")
+
+    
+
+        updated_state = {
+            **state,
+            'sim_score': sim_score,
+            'llm_sim_score': llm_sim_score,
+            'id_comparison_flag': id_comparison_flag,
+            'error': None
+        }
+        return updated_state
+
+    except Exception as e:
+        print(f" An unexpected error occurred in comparison_agent: {e}")
+        st.text(e)
+        return {
+            **state,
+            'error': f"An unexpected error occurred in comparison_agent step: {e}"
+        }
+
+
+
+# def comparison_agent(state: GraphState) -> GraphState:
+#     print("\n--- Executing Comparison Agent ---")
+
+#     rag_output=state.get("rag_output")
+#     final_df_output = state.get("final_df_output",{})
+    
+#     print(f"Data extracted from Form is {rag_output} and OCR extracted is {final_df_output}")
+
+#     if rag_output== final_df_output:
+#         comparison_result= "OCR extracted data matches with Form extracted data"
+#         comparison_flag= "TRUE"
+#         print(f"OCR extracted data matches with Form extracted data")
+#         #st.success(comparison_result)
+#         st.success(comparison_result,icon=":material/thumb_up:")
+
+#     else:
+#         comparison_result= "OCR extracted data does not match with Form extracted data"
+#         comparison_flag= "FALSE"
+#         print(f"OCR extracted data does not match with Form extracted data")
+#         print(comparison_flag)
+#         st.error(comparison_result,icon=":material/thumb_down:")
+        
+    
+#     #print(" RAG dictionary:", RAG_result)
+    
+#     updated_state = {
+#             **state,
+#             "comparison_result": comparison_result,
+#             "comparison_flag": comparison_flag,
+#             "error": None
+#     }
+    
+#     return updated_state
+
+
+
+
+
+
+def supervisor_agent_node_accuracy(state: GraphState) -> GraphState:
+    """
+    Based on documents received from mongo_db agent,provide the availability status against Passport, SSN and Utility Bill Address document for the particular customer
+    Supervisor node that decides the next agent to call or if the process is finished.
+    Updates the state with the decision in the 'next' field.
+    
+
+    """
+
+    try:
+        print("-------------Calling Supervisor-------------- ---")
+        time.sleep(2)
+        
+        ######## Accessing all outputs from different nodes in supervisor node
+        query = state['query_accuracy']
+        #reason = state['query']   
+        available_docs=state.get('available_docs')
+        ssn_ocr_output = state.get('ssn_ocr_output')
+        passport_ocr_output = state.get('passport_ocr_output')
+        bill_ocr_output = state.get('bill_ocr_output') # Get the final response from potentially the Gmail agent
+        final_df_output = state.get('final_df_output')   
+        final_df_output = state.get('final_df_output')
+        docs_filepath = state.get('docs_filepath')
+        rag_output=state.get('rag_output')
+        final_response=state.get('final_response')
+        comparison_result = state.get('comparison_result')
+        id_comparison_flag = state.get('id_comparison_flag')
+        error = state.get('error')
+        messages = state.get('messages', [])
+        mongo_db_output= state.get('mongo_db_output')
+        fuzzy_score= state.get('sim_score')
+        llm_score= state.get('llm_sim_score')
+            
+        
+    
+    
+    
+    
+        # supervisor_llm_prompt = ChatPromptTemplate.from_messages([
+        #     ("system", """You are a supervisor agent. Your role is to direct the workflow based on the user's query
+        #      and the current state of the process.
+    
+        #      The available workers are:
+        #      - `MongoDB Extractor Accuracy`: Use this to check available documents in mongo db against customer name. Requires a customer name.
+        #      - `SSN OCR`: Use this to perform OCR on top of ssn_binary_pdf and extract the customer name and SSN Number.
+        #      - `Passport OCR`: Use this perform OCR on top of passport_binary_pdf and extract the Customer Name and Passport Number.
+        #      - `Bill OCR`: Use this to perform OCR on top of bill_binary_pdf and extract the Customer Name and Address.    
+        #      - `Final Df Agent`: Use this merge passport_ocr_output,ssn_ocr_output and bill_ocr_output in final dictionary based on whatever information is available.
+        #      - `Email Agent`: Use this to send an email to the customer based on the comparison flag. Requires the comparison flag from the Comparison.
+    
+        #      The typical process flow for a KYC completeness check is:
+        #      1. Receive query about a customer document OCR.
+        #      2. Call `MongoDB Extractor Accuracy` passing customer name and check the available documents in mongodb and provide the list of file path saved locally for each file. 
+        #      3. If 'available_docs' contains 'SSN Document is found', Call 'SSN OCR'. Pass the 'docs_filepath' as an input to 'SSN OCR' and save the output in ssn_ocr_output.
+        #      4. If 'available_docs' contains 'Passport Document is found', Call 'Passport OCR'. Pass the 'docs_filepath' as an input to 'Passport OCR' and save the output in passport_ocr_output. 
+        #      5. If 'available_docs' contains 'Utility Bill Document is found', Call 'Bill OCR'. Pass the 'docs_filepath' as an input to 'Bill OCR' and save the output in bill_ocr_output
+        #      6. Pass the ssn_ocr_output, passport_ocr_output and bill_ocr_output to Call 'Final Df Agent' to merge all extracted information from Bill OCR,Passport OCR,SSN OCR in final_df_output string.  
+        #      7. Once the 'final_df_output' is not None ('final_df_output' has some values), the task is RAG.
+        #      8. Once the 'rag_output' is not None ('rag_output' has some values), the task is Comparison.
+        #      9. If comparison_flag is 'FALSE', call `Email Agent` to send an email to the customer about wrong information.
+        #      10. If `Email Agent` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+        #      11. If an error occurred in any step, the task should finish.
+    
+        #      Current state:
+        #      Query: {query}
+        #      docs_filepath:{docs_filepath}
+        #      available_docs:{available_docs}
+        #      passport_ocr_output: {passport_ocr_output}
+        #      bill_ocr_output: {bill_ocr_output}         
+        #      final_df_output: {final_df_output}
+        #      comparison_flag: {comparison_flag}
+        #      Error: {error}
+    
+        #      Based on the user's query and the current state, decide which worker should act next or if the task is finished (`FINISH`).
+        #      If 'ssn_ocr_output' is not yet available and 'available_docs' contains 'SSN Document is found', call `SSN OCR`.
+        #      If 'passport_ocr_output' is not yet available and 'available_docs' contains 'Passport Document is found', call `Passport OCR`.
+        #      If 'bill_ocr_output' is not yet available and 'available_docs' contains 'Utility Bill Document is found', call `Bill OCR`.
+        #      If `bill_ocr_output` and either of the two (`ssn_ocr_output`, `passport_ocr_output`)  are available, call `final_df_accuracy`.
+        #      if `final_df_output` is not None(if available), then and only then respond with `RAG`.
+        #      if `rag_output` is not None(if available), then and only then respond with `Comparison`.
+        #      If the 'Final Response' indicates that the email action was completed, respond with `FINISH`.
+    
+        #      Respond ONLY with the name of the next worker or `FINISH`.
+        #      Available workers: MongoDB Extractor Accuracy, SSN OCR, Passport OCR,Bill OCR, Final Df Agent, FINISH, RAG, Comparison, Email Agent
+        #      """),
+        #     MessagesPlaceholder(variable_name="messages") # Include message history for context
+        # ])
+
+        # Based on the user's query and the current state, decide which worker should act next or if the task is finished (`FINISH`).
+        # If 'ssn_ocr_output' is not yet available and 'available_docs' contains 'SSN Document is found', call `SSN OCR`.
+        # If 'passport_ocr_output' is not yet available and 'available_docs' contains 'Passport Document is found', call `Passport OCR`.
+        # If 'bill_ocr_output' is not yet available and 'available_docs' contains 'Utility Bill Document is found', call `Bill OCR`.
+        # If `bill_ocr_output` and either of the two (`ssn_ocr_output`, `passport_ocr_output`)  are available, call `final_df_accuracy`.
+        # If 'rag_output' is not yet available, call `RAG`.
+        # If `comparison_flag` is not yet available,Call `Comparison`.         
+        # If the 'Final Response' indicates that the email action was completed, respond with `FINISH`.
+        # Respond ONLY with the name of the next worker or `FINISH`.
+        #Based on the user's query and the current state, decide which worker should act next or if the task is finished (`FINISH`). Prioritize the workflow steps sequentially:
+        #
+        #6.  If 'final_df_output' is not None AND 'rag_output' is None and 'Error' is None, call `RAG`.
+
+        # Based on the current state and the typical process flow, determine the single next step.
+        # Evaluate the following conditions IN ORDER and output the name of the first worker whose condition is met.
+        # If none of the worker conditions are met, output `FINISH`.
+
+
+         # 6. If comparison_flag is 'FALSE', call `Email Agent` to send an email to the customer about wrong information.
+         # 7. If comparison_flag is 'TRUE', then task is finished
+         # 8. If `Email Agent` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+         # 9. If an error occurred in any step, the task should finish. 
+    
+    
+        supervisor_llm_prompt = ChatPromptTemplate.from_messages([
+            ("system", """You are a supervisor agent. Your role is to direct the workflow based on the user's query
+             and the current state of the process. 
+             Respond ONLY in the form of a dictionary consists of two keys where first key 'decision' is the name of the next worker or `FINISH`, second key 'Reason' illustrated the reason of the decision you make, do not show any numerical calculation in the Reason and the third key 'Thinking' should show your thinking process, Include the numerical calculation in thinking process wherever required (for example:- while calculating weighted_avg_score tell the llm_weight and fuzzy_weight, also the reason of chosing the weight).
+    
+             The available workers are:
+             - `DocuFetch`: Use this to check available documents in mongo db against customer name. Requires a customer name.
+             - `IDQuest`: Use this to perform OCR on top of ssn_binary_pdf, passport_binary_pdf, bill_binary_pdf and extract the relevant information.
+             - `FormFetch`: Use this to perform RAG on top of form_binary_pdf and extract the customer name, SSN Number, Passport Number and Address.
+             - `ValideX`: Use this to compare the rag_output and final_df_output.
+             - `MailCast`: Use this to send an email to the customer..
+    
+             The typical process flow for a KYC completeness check is:
+             1. Receive query about a customer document OCR.
+             2. Call `DocuFetch` passing customer name and check the available documents in mongodb and provide the list of file path saved locally for each file. 
+             3. If 'available_docs' contains 'KYC Application Form Document is found', Call 'FormFetch'. Pass the 'docs_filepath' as an input to 'FormFetch' and save the output in rag_output.
+             4. If 'final_df_output' is not yet available , Call 'IDQuest'. Pass the 'docs_filepath' as an input to 'IDQuest' agent.
+             5. If 'rag_output' and 'final_df_output' are available ('rag_output' and 'final_df_output' has some values), Call 'ValideX'.
+             6. If 'fuzzy_score' and 'llm_score' are available. Perform the below task:
+                 a.  Calculate a weighted average score using weights decided by your intelligence keeping in mind the exhaustivenss of llm_score and fuzzy_score (llm_score is coming from llm similarity while fuzzy_score is coming from fuzzy logic):
+                     * Formula: `weighted_avg_score = (llm_weight * llm_score) + (fuzzy_weight * fuzzy_score)`
+                 b.  Compare the `weighted_avg_score` to a fixed similarity threshold of **0.8**.
+             7. If `weighted_avg_score` is greater than or equal to 0.8 and `identity comparison` is TRUE (its an AND operator so both conditions should be TRUE), decide that the addresses and identity proof are similar and then task is finished
+             8. If `weighted_avg_score` is less than 0.8  OR `identity comparison` is FALSE(its an OR operator), decide that the addresses or identity proof are not similar and then call `MailCast` to send an email to the customer about wrong information.
+             9. If `MailCast` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+             10. If an error occurred in any step, the task should finish. 
+    
+             Current state:
+             Query: {query}
+             docs_filepath:{docs_filepath}
+             available_docs:{available_docs}
+             passport_ocr_output: {passport_ocr_output}
+             bill_ocr_output: {bill_ocr_output} 
+             rag_output: {rag_output}
+             llm_score: {llm_score}
+             fuzzy_score: {fuzzy_score}
+             final_df_output: {final_df_output}
+             identity comparison: {id_comparison_flag}
+             final_response: {final_response}
+             Error: {error}
+
+             Based on the user's query and the current state, decide which worker should act next or if the task is finished (`FINISH`). Prioritize the workflow steps sequentially:
+
+             1. Call `DocuFetch` passing customer name and check the available documents in mongodb and provide the list of file path saved locally for each file.
+             2. If 'available_docs' contains 'KYC Application Form Document is found', call `FormFetch`.
+             3. If 'final_df_output' is not yet available, call `IDQuest`.
+             4. If 'final_df_output' is available AND 'rag_output' is available AND 'id_comparison_flag' is not yet available, call `ValideX`.
+             5. If 'fuzzy_score' and 'llm_score' are available. Perform the below task:
+                 a. Calculate a weighted average score using weights decided by your intelligence keeping in mind the exhaustivenss of llm_score and fuzzy_score(llm_score is coming from llm similarity while fuzzy_score is coming from fuzzy logic):
+                     * Formula: `weighted_avg_score = (llm_weight * llm_score) + (fuzzy_weight * fuzzy_score)`
+                 b.  Compare the `weighted_avg_score` to a fixed similarity threshold of **0.8**.
+             6. If `weighted_avg_score` is greater than or equal to 0.8 AND `identity comparison` is TRUE (its an AND operator so both conditions should be TRUE), decide that the addresses and identity proof are similar and then task is `FINISH`
+             7. If `weighted_avg_score` is less than 0.8 OR `identity comparison` is FALSE(its an OR operator), decide that the addresses or the identity proof are not similar and then call `MailCast` to send an email to the customer about wrong information.
+             8. If `MailCast` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+             
+
+             Respond ONLY in the form of a dictionary consists of two keys where first key 'decision' is the name of the next worker or `FINISH`, second key 'Reason' illustrated the reason of the decision you make, do not show any numerical calculation in the Reason and the third key 'Thinking' should show your thinking process. , Include the numerical calculation in thinking process wherever required (for example:- while calculating weighted_avg_score tell the llm_weight and fuzzy_weight, also the reason of chosing the weight).
+            
+             Available workers: DocuFetch, IDQuest, FormFetch, ValideX, MailCast, FINISH
+             """),
+            MessagesPlaceholder(variable_name="messages") # Include message history for context
+        ])
+
+        # 4.  If 'comparison_flag' is 'FALSE' and 'final_response' does not indicate email sent and 'Error' is None, call `Email Agent`.
+        # 5.  If 'comparison_flag' is 'TRUE' OR 'final_response' indicates email sent OR 'Error' is not None, respond with `FINISH`.
+
+        # Respond ONLY with the name of the next worker or `FINISH`.
+        # 1.  If ('ssn_ocr_output' is not yet available AND 'available_docs' contains 'SSN Document is found') OR ('Passport_ocr_output' is not yet available AND 'available_docs' contains 'Passport Document is found') OR ('bill_ocr_output' is not yet available AND 'available_docs' contains 'Utility Bill Document is found'), call `OCR`.
+
+        # 4. If 'available_docs' contains either('SSN Document is found' OR 'Passport Document is found' OR 'Utility Bill Document is found') , Call 'OCR'. Pass the 'docs_filepath' as an input to 'OCR' agent.
+
+        
+        # supervisor_llm_prompt = ChatPromptTemplate.from_messages([
+        # ("system", """You are a supervisor agent. Your role is to direct the workflow based on the user's query
+        #  and the current state of the process.
+
+        #  The available workers are:
+        #  - `MongoDB Extractor Accuracy`: Use this to check available documents in mongo db against customer name. Requires a customer name.
+        #  - `SSN OCR`: Use this to perform OCR on top of ssn_binary_pdf and extract the customer name and SSN Number.
+        #  - `Passport OCR`: Use this perform OCR on top of passport_binary_pdf and extract the Customer Name and Passport Number.
+        #  - `Bill OCR`: Use this to perform OCR on top of bill_binary_pdf and extract the Customer Name and Address.    
+        #  - `Final Df Agent`: Use this merge passport_ocr_output,ssn_ocr_output and bill_ocr_output in final dictionary based on whatever information is available.
+        #  - `Email Agent`: Use this to send an email to the customer based on the comparison flag. Requires the comparison flag from the Comparison.
+
+        #  The typical process flow for a KYC completeness check is:
+        #  1. Receive query about a customer document OCR.
+        #  2. Call `MongoDB Extractor Accuracy` passing customer name and check the available documents in mongodb and provide the list of file path saved locally for each file. 
+        #  3. If 'available_docs' contains 'SSN Document is found', Call 'SSN OCR'. Pass the 'docs_filepath' as an input to 'SSN OCR' and save the output in ssn_ocr_output.
+        #  4. If 'available_docs' contains 'Passport Document is found', Call 'Passport OCR'. Pass the 'docs_filepath' as an input to 'Passport OCR' and save the output in passport_ocr_output. 
+        #  5. If 'available_docs' contains 'Utility Bill Document is found', Call 'Bill OCR'. Pass the 'docs_filepath' as an input to 'Bill OCR' and save the output in bill_ocr_output
+        #  6. Pass the ssn_ocr_output, passport_ocr_output and bill_ocr_output to Call 'Final Df Agent' to merge all extracted information from Bill OCR,Passport OCR,SSN OCR in final_df_output string.  
+        #  7. Once the 'final_df_output' is not None ('final_df_output' has some values), the task is RAG.
+        #  8. Once the 'rag_output' is not None ('rag_output' has some values), the task is Comparison.
+        #  9. If comparison_flag is 'FALSE', call `Email Agent` to send an email to the customer about wrong information.
+        #  10. If `Email Agent` was successfully called (indicated by its output in the state), and the email action is complete, the task is finished.
+        #  11. If an error occurred in any step, the task should finish.
+
+        #  Current state:
+        #  Query: {query}
+        #  docs_filepath:{docs_filepath}
+        #  available_docs:{available_docs}
+        #  passport_ocr_output: {passport_ocr_output}
+        #  bill_ocr_output: {bill_ocr_output}         
+        #  final_df_output: {final_df_output}
+        #  comparison_flag: {comparison_flag}
+        #  Error: {error}
+
+        #  Based on the user's query and the current state, decide which worker should act next or if the task is finished (`FINISH`).
+        #  If 'ssn_ocr_output' is not yet available and 'available_docs' contains 'SSN Document is found', call `SSN OCR`.
+        #  If 'passport_ocr_output' is not yet available and 'available_docs' contains 'Passport Document is found', call `Passport OCR`.
+        #  If 'bill_ocr_output' is not yet available and 'available_docs' contains 'Utility Bill Document is found', call `Bill OCR`.
+        #  If `bill_ocr_output` and either of the two (`ssn_ocr_output`, `passport_ocr_output`)  are available, call `final_df_accuracy`.
+        #  if `final_df_output` is not None(if available), then and only then respond with `RAG`.
+        #  if `rag_output` is not None(if available), then and only then respond with `Comparison`.
+        #  If the 'Final Response' indicates that the email action was completed, respond with `FINISH`.
+
+        #  Respond ONLY with the name of the next worker or `FINISH`.
+        #  Available workers: MongoDB Extractor Accuracy, SSN OCR, Passport OCR,Bill OCR, Final Df Agent, FINISH, RAG, Comparison, Email Agent
+        #  """),
+        # MessagesPlaceholder(variable_name="messages")
+        # ])
+    
+        st.divider()
+    
+    
+        
+        supervisor_input = {
+           "query": query,
+           "available_docs" : available_docs,
+           "docs_filepath" : docs_filepath if docs_filepath is not None else "N/A",
+           "ssn_ocr_output": ssn_ocr_output if ssn_ocr_output is not None else "N/A",
+           "passport_ocr_output": passport_ocr_output if passport_ocr_output is not None else "N/A",
+           "bill_ocr_output": bill_ocr_output if bill_ocr_output is not None else "N/A",
+           "final_df_output": final_df_output if final_df_output is not None else "N/A",
+           "rag_output": rag_output if rag_output is not None else "N/A",
+           "comparison_result": comparison_result if comparison_result is not None else "N/A",
+           "final_response": final_response if final_response is not None else "N/A",
+           "id_comparison_flag": id_comparison_flag if id_comparison_flag is not None else "N/A",
+           "llm_score": llm_score if llm_score is not None else "N/A",
+           "fuzzy_score": fuzzy_score if fuzzy_score is not None else "N/A",
+           "error": error if error is not None else "N/A",
+           "messages": messages
+        }
+
+        # Include a summary of the current state in the messages for the supervisor LLM
+        state_summary_message = f"""Current State Summary:
+                                           "query": {query},
+                                           "available_docs":{available_docs},
+                                           "docs_filepath":{docs_filepath if docs_filepath is not None else "N/A"},
+                                            "ssn_ocr_output": {ssn_ocr_output if ssn_ocr_output is not None else "N/A"},
+                                            "passport_ocr_output": {passport_ocr_output if passport_ocr_output is not None else "N/A"},
+                                            "bill_ocr_output": {bill_ocr_output if bill_ocr_output is not None else "N/A"},
+                                            "final_df_output": {final_df_output if final_df_output is not None else "N/A"},
+                                            "final_response": {final_response if final_response is not None else "N/A"},
+                                            "llm_score": {llm_score if llm_score is not None else "N/A"},
+                                            "fuzzy_score": {fuzzy_score if fuzzy_score is not None else "N/A"},
+                                            "rag_output": {rag_output if rag_output is not None else "N/A"},
+                                            "comparison_result": {comparison_result if comparison_result is not None else "N/A"},
+                                            "id_comparison_flag": {id_comparison_flag if id_comparison_flag is not None else "N/A"},
+                                            "error": {error if error is not None else "N/A"},
+
+                                    """
+        # Append the state summary to the messages
+        supervisor_input["messages"] = messages + [HumanMessage(content=state_summary_message, name="system_state")]
+        #print("comparison_result testing:",comparison_result)
+
+        
+        # if final_df_output is not None and rag_output is None and comparison_result is None and comparison_flag is None:
+        #     decision = "RAG"
+
+        # elif final_df_output is not None and rag_output is not None and comparison_result is None and comparison_flag is None:
+        #     decision = "Comparison"
+
+        # elif comparison_result is not None and final_df_output is not None and rag_output is not None and comparison_flag =="TRUE":
+        #     decision = "FINISH"
+
+        # elif comparison_result is not None and final_df_output is not None and rag_output is not None and comparison_flag =="FALSE":
+        #     decision = "Email Agent"
+            
+        # else:
+
+        #     llm_accuracy_supervisor = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",
+        #                      temperature=0.3, # Lower temp for reliable tool use
+        #                      timeout=None,
+        #                      max_retries=5,
+        #                      google_api_key="AIzaSyDyKn5MThkOwCgKFyTKIgfxDH8GfW5spjw"
+        #                     )
+        #     ###can use field validator and then use it as dictionary
+        #     decision = llm_accuracy_supervisor.invoke(supervisor_llm_prompt.format_prompt(**supervisor_input)).content.strip()
+
+        
+
+        llm_accuracy_supervisor = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",
+                             temperature=0.3, # Lower temp for reliable tool use
+                             timeout=5,
+                             max_retries=5,
+                             google_api_key="AIzaSyDyKn5MThkOwCgKFyTKIgfxDH8GfW5spjw"
+                            )
+        ###can use field validator and then use it as dictionary
+        decision_output = llm_accuracy_supervisor.invoke(supervisor_llm_prompt.format_prompt(**supervisor_input)).content.strip()
+
+        
+
+        #decision_final_output=(decision_output.content)  
+        decision_final_output= decision_output.replace("```json","")
+        decision_final_output= decision_final_output.replace("```","")
+        decision_final_output = ast.literal_eval(decision_final_output)
+
+        decision= decision_final_output.get("decision")
+        reason= decision_final_output.get("Reason")
+        thinking= decision_final_output.get("Thinking")
+        #st.success(f"Supervisor Accuracy decided: {decision}")
+        #st.badge(f"Supervisor Accuracy decided: {decision}")
+
+        if decision=="MongoDB Extractor Accuracy":
+            st.subheader("Document Accuracy")
+
+        st.badge(f"AI Supervisor AccuSure decided: {decision}",icon=":material/supervisor_account:")
+        st.warning(f"Reason for decision: {reason}",icon=":material/supervisor_account:")
+        st.success(f"Thinking behind the decision: {thinking}",icon=":material/supervisor_account:")
+
+        # Validate the decision
+        valid_decisions = ["DocuFetch","IDQuest","FormFetch","ValideX","MailCast","FINISH"]
+        if decision not in valid_decisions:
+             print(f"Warning: Supervisor returned invalid decision '{decision}'. Defaulting to FINISH.")
+             decision = "FINISH"
+
+            
+        
+        
+        updated_state = {**state, "next": decision}
+        return updated_state
+
+    except Exception as e:
+        print(f"Error in supervisor_agent_node: {e}")
+        st.text(f"Error in supervisor_agent_node: {e}")
+        # If supervisor fails, update state to finish
+        return {**state, "next": "FINISH",
+                'error': f"Error in supervisor decision: {e}"}
+    '
+########################################################################################## LANGRAPH ARCHITECTURE ##################################################################################################################################################
+
+# --- Build the Langgraph Graph with Further Revised Supervisor ---
+
+workflow = StateGraph(GraphState)
+
+
+# Add the further revised supervisor node and your existing agent nodes
+workflow.add_node("AI Supervisor DocuSure", supervisor_agent_node)
+workflow.add_node("DocuSeek", call_mongodb_agent_node)
+workflow.add_node("DocuHunt", call_check_docs_completeness_node)
+workflow.add_node("MailCast", call_gmail_agent_node) # Keep using your modified Gmail node
+workflow.add_node("AI Supervisor AccuSure", supervisor_agent_node_accuracy)# Use the further revised node function
+workflow.add_node("DocuFetch", mongo_db_accuracy_agent_node)
+workflow.add_node("IDQuest", ocr_agent_node)
+# workflow.add_node("Passport OCR", passport_ocr_agent_node)
+# workflow.add_node("Bill OCR", bill_ocr_agent_node)
+#workflow.add_node("Final Df Agent", final_df_agent_node)
+workflow.add_node("FormFetch", RAG_agent_node)
+workflow.add_node("ValideX", comparison_agent_node)
+
+
+# Set the entry point to the supervisor
+workflow.add_edge(START, "AI Supervisor DocuSure")
+
+# Add conditional edges from the supervisor
+workflow.add_conditional_edges(
+    "AI Supervisor DocuSure",
+    lambda state: state.get('next'), # Read the 'next' key from the state
+    {
+        "DocuSeek": "DocuSeek",
+        "DocuHunt": "DocuHunt",
+        "MailCast": "MailCast",
+        "AI Supervisor AccuSure": "AI Supervisor AccuSure",
+        "FINISH": END
+    }
+)
+
+
+workflow.add_conditional_edges(
+    "AI Supervisor AccuSure",
+    lambda state: state.get('next'), # Read the 'next' key from the state
+    {
+        "DocuFetch":"DocuFetch",
+        "IDQuest":"IDQuest",
+        "FormFetch": "FormFetch",
+        "ValideX": "ValideX",
+        "MailCast": "MailCast",
+        "FINISH": END,
+    }
+)
+#DocuFetch, IDQuest, FormFetch, ValideX, MailCast, FINISH, AI Supervisor AccuSure
+# Add edges from each agent node back to the supervisor
+workflow.add_edge("DocuSeek", "AI Supervisor DocuSure")
+workflow.add_edge("DocuHunt", "AI Supervisor DocuSure")
+workflow.add_edge("MailCast", END)
+#workflow.add_edge("supervisor_accuracy", "supervisor")
+workflow.add_edge("DocuFetch", "AI Supervisor AccuSure")
+workflow.add_edge("IDQuest", "AI Supervisor AccuSure")
+# workflow.add_edge("Passport OCR", "Supervisor Accuracy")
+# workflow.add_edge("Bill OCR", "Supervisor Accuracy")
+workflow.add_edge("FormFetch", "AI Supervisor AccuSure")
+workflow.add_edge("ValideX", "AI Supervisor AccuSure")
+workflow.add_edge("AI Supervisor AccuSure", END)
+#workflow.add_edge("FINISH", END)
+
+
+# Compile the graph
+app = workflow.compile()
+
+print("--- Langgraph Graph with Further Revised Supervisor Compiled ---")
+
+try:
+    app.get_graph().print_ascii()
+
+    #display(Image(app.get_graph(xray=True).draw_png()))
+    #display(Image(app.get_graph(xray=True).draw_png()))
+    # For visual graph (requires pygraphviz or pydot and graphviz installation)
+    # display(Image(app.get_graph(xray=True).draw_mermaid_png()))
+except Exception as e:
+    print(f"Could not print or display graph: {e}")
+
+# from IPython.display import Image, display
+# from langchain_core.runnables.graph import CurveStyle, MermaidDrawMethod, NodeStyles
+
+# display(
+#     Image(
+#         app.get_graph().draw_mermaid_png(
+#             draw_method=MermaidDrawMethod.API,
+#         )
+#     )
+# )
+
+
+# --- Run the Graph ---
+print("\n--- Running Langgraph Workflow with Supervisor ---")
+
+# Example Query
+# user_query = "Check the KYC document completeness status for customer Heather."
+# # user_query = "Send an email to John Doe about incomplete documents." # This would require a more complex supervisor logic
+# # user_query = "List documents for customer Jane Smith." # This query might still go through completeness/gmail depending on supervisor logic
+
+# initial_state: GraphState = {
+#     "query": user_query,
+#     "messages": [HumanMessage(content=user_query, name="user")], # Start messages with the user query
+#     "customer_name": None,
+#     "mongodb_agent_output": None,
+#     "completeness_agent_summary": None,
+#     "final_response": None,
+#     "error": None,
+#     "next": "supervisor" # Start by going to the supervisor
+# }
+#     # The .invoke() method runs the graph starting from the START node
+#     # The first edge is START -> supervisor, so the supervisor runs first
+#     final_state = app.invoke(initial_state)
+
+
+
+# (Section 6: Streamlit Dashboard) ----------
+st.title("Document Verification Process")
+
+cust = st.text_input("Enter the customer name:")
+if st.button("Submit") and cust:
+    user_query = "Check the KYC document completeness status for customer "+ cust +"."
+    user_query_accuracy = "Perform OCR on cust documents submitted by "+ cust +"."
+
+    initial_state: GraphState = {
+    "query": user_query,
+    "query_accuracy":user_query_accuracy,
+    "messages": [HumanMessage(content=user_query, name="user")], # Start messages with the user query
+    "customer_name": None,
+    "mongodb_agent_output": None,
+    "completeness_agent_summary": None,
+    "final_response": None,
+    "error": None,
+    "sim_score": None,
+    "llm_sim_score": None,
+    "ssn_ocr_output": None,
+    "passport_ocr_output": None,
+    "bill_ocr_output":None, 
+    "final_df_output": None,   
+    "ssn_binary_pdf": None,
+    "rag_output": None,
+    "comparison_result": None,
+    "id_comparison_flag": None,
+    "passport_binary_pdf": None,
+    "bill_binary_pdf":None,
+    "final_result":None,
+    "next": "Supervisor" # Start by going to the supervisor
+    }
+
+    #st.image(Image(app.get_graph(xray=True).draw_mermaid_png()))
+    from IPython.display import Image, display
+    from langchain_core.runnables.graph_mermaid import MermaidDrawMethod # Keep this if you were using draw_mermaid_png
+
+    # If using draw_mermaid_png() which returns PNG data:
+    # Assuming app.get_graph().draw_mermaid_png() returns the PNG data as bytes
+    #image_data = app.get_graph().draw_mermaid_png()
+
+    # Option 1: Pass bytes directly (often works)
+    #st.image(image_data, caption="Compiled graph")
+    
+    
+        # Read the file as bytes
+    
+        # Display the PDF using the component
+        # You can pass bytes or a file path
+    start = time.time()
+    
+    final_state = app.invoke(initial_state)
+    end = time.time()
+    st.badge(f"Total execution time is {round(end - start,2)} seconds", icon=":material/timer:")
